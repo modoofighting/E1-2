@@ -526,7 +526,7 @@ README가 참조하는 작업 로그도 같은 커밋에 담기 위해 **다음 
 # logs 폴더의 파일도 다음 커밋 대상으로 선택
 <span style="color: #0969da;">git add logs/</span></code></pre>
 
-**실제 출력 요약:** 사용자 PowerShell에서 `02-environment-check.md`, `03-git-local-config.md`, `04-gitignore.md`, `05-git-staging.md`, `progress.md` 각각에 대해 LF가 나중에 CRLF로 바뀔 수 있다는 경고가 표시됐습니다. `README.md`에서 본 것과 같은 종류의 줄바꿈 경고입니다.
+**실제 출력 요약:** `02-environment-check.md`, `03-git-local-config.md`, `04-gitignore.md`, `05-git-staging.md`, `progress.md` 각각에 대해 LF가 나중에 CRLF로 바뀔 수 있다는 경고가 표시
 
 ##### 2-1. 준비된 파일 이름 확인 
 
@@ -546,8 +546,6 @@ logs/progress.md
 
 출력에 `.gitignore`와 `README.md`가 있으므로 앞서 실행한 `git add README.md .gitignore`로 두 파일이 준비됐음을 확인. 로그 파일들도 이후 `git add logs/`로 준비. `--cached`는 스테이징 영역을, `--name-only`는 파일 이름만 표시한다는 뜻. 이 목록은 **명령을 실행한 당시의 상태**.
 
-상세 실행 기록 [첫 커밋 준비 로그](logs/05-git-staging.md).
-
 ```powershell
 # PowerShell에서 실행 예정: C:\all in one\e1-2
 # 수정된 README와 작업 로그를 다시 커밋 대상으로 준비
@@ -556,18 +554,67 @@ git add README.md logs/
 git diff --cached --name-only
 git diff --cached
 ```
+상세 실행 기록 [첫 커밋 준비 로그](logs/05-git-staging.md).
 
-##### 4. 첫 커밋 — 내용 확인 후 수행
+##### 4. 첫 커밋 
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 스테이징된 파일들을 첫 번째 로컬 커밋으로 기록
+<span style="color: #0969da;">git commit -m "chore: initialize E1-2 project and README"</span></code></pre>
 
-스테이징된 내용이 원하는 대로 표시되는 것을 확인한 뒤 다음 명령으로 로컬 이력을 기록할 예정입니다. **아직 커밋하지 않았습니다.**
+```text
+[main (root-commit) 641021e] chore:initialize E1-2 project and README
+ 7 files changed, 1793 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 logs/02-environment-check.md
+ create mode 100644 logs/03-git-local-config.md
+ create mode 100644 logs/04-gitignore.md
+ create mode 100644 logs/05-git-staging.md
+ create mode 100644 logs/progress.md
+```
+
+**결과 해설:** `main`은 커밋이 기록된 브랜치이고 `root-commit`은 이 저장소의 첫 커밋입니다. `641021e`는 커밋을 구별하는 짧은 해시입니다. 파일 7개가 새로 기록됐고 1,793줄이 추가됐습니다. `create mode 100644`는 해당 경로가 일반 파일로 새로 기록됐다는 뜻입니다. `docs/`와 참고 텍스트 파일은 위 커밋 목록에 포함되지 않았습니다.
+
+#### 커밋 명령 입력 중 `>>` 표시
+
+다음은 사용자가 커밋 명령을 입력하다가 공유한 내용입니다. **잘못 입력된 사례이며 그대로 실행하는 명령이 아닙니다.**
+
+```text
+PS C:\all in one\e1-2> git commit -m :chore: initialize E1-2 project and README"
+>>
+```
+
+시작 따옴표가 빠지고 끝에만 큰따옴표가 있어 PowerShell이 입력이 끝나지 않았다고 판단해 `>>`에서 다음 줄을 기다렸습니다. 이때 **Ctrl+C**를 누르면 입력 중인 명령을 취소하고 `PS C:\all in one\e1-2>` 프롬프트로 돌아갈 수 있다고 안내했습니다. 사용자가 Ctrl+C를 누른 장면 자체는 제공되지 않았으므로 별도 실행 결과로 기록하지 않습니다.
+
+당시 안내한 다음 순서는 아래와 같습니다. `git add README.md`는 수정한 README를 다시 스테이징하는 명령이고, 이어지는 `git commit`은 준비된 내용을 로컬 이력에 기록하는 명령입니다. 커밋 메시지의 앞과 뒤에는 각각 큰따옴표가 필요합니다.
+
+```powershell
+# PowerShell 프롬프트로 돌아온 뒤 한 줄씩 실행하도록 안내한 명령
+git add README.md
+git commit -m "chore: initialize E1-2 project and README"
+```
+
+#### 커밋 명령 자세히 보기
 
 ```powershell
 git commit -m "chore: initialize E1-2 project and README"
 ```
 
+| 부분 | 의미 |
+|---|---|
+| `git` | Git 버전 관리 프로그램을 실행합니다. |
+| `commit` | `git add`로 스테이징 영역에 준비한 내용의 스냅샷을 현재 저장소의 이력에 기록합니다. 작업 폴더의 모든 파일이 자동으로 포함되는 것은 아닙니다. |
+| `-m` | 뒤에 오는 문자열을 커밋 메시지로 지정합니다. |
+| `"..."` | 공백이 포함된 메시지 전체를 하나의 문자열로 전달합니다. 여는 따옴표와 닫는 따옴표가 모두 필요합니다. |
+| `chore:` | 이 프로젝트에서 준비·설정 작업을 나타내기 위해 선택한 메시지 접두사입니다. Git이 강제하는 문법은 아닙니다. |
+| `initialize E1-2 project and README` | “E1-2 프로젝트와 README를 초기 설정한다”는 작업 설명입니다. |
+
+ 이 커밋은 **로컬 Git 이력**에만 만들어지며 GitHub에 전송하려면 이후 `push`가 필요합니다. 실행 전에 `git diff --cached --name-only`로 파일 목록을, 필요하면 `git diff --cached`로 준비된 내용을 확인할 수 있습니다.
+
+**입력 중 `>>`가 표시될 때:** PowerShell은 닫히지 않은 따옴표처럼 명령이 아직 끝나지 않았다고 판단하면 다음 줄을 기다립니다. `Ctrl+C`를 누르면 입력 중인 명령을 취소하고 원래 `PS ...>` 프롬프트로 돌아갑니다. 이후 따옴표 두 개를 모두 포함해 명령을 다시 입력합니다.
+
 ##### 5. GitHub 연결과 push — 첫 커밋 후 수행
 
-현재 브랜치는 이미 `main`이므로 이름 변경은 필요하지 않습니다. 새 GitHub 저장소를 만든 뒤 실제 주소와 원격 연결 상태를 확인하고 `origin`을 설정한 다음 push합니다. **원격 저장소 생성·연결과 push는 아직 확인되지 않았습니다.** 자리표시자가 포함된 URL을 그대로 실행하지 않습니다.
+
 
 ---
 ## STEP 3. Python 퀴즈 게임 제작 — 7개 덩어리
