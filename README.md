@@ -655,11 +655,55 @@ README.md
 
 **현재 상태:** 두 커밋은 로컬 `main` 브랜치에 있습니다. 이 두 번째 커밋 결과를 README에 추가한 내용은 `15e7c36` 이후의 변경이므로 다음 커밋에 담을 수 있습니다. GitHub에 push한 결과는 아직 확인되지 않았습니다.
 
-##### 5. GitHub 연결과 push — 첫 커밋 후 수행
+##### 5. GitHub Quick setup 화면 이해와 연결 순서
 
+사용자가 GitHub에서 `modoofighting/E1-2` 저장소의 **Quick setup** 화면을 확인했습니다. 화면에 표시된 HTTPS 주소는 `https://github.com/modoofighting/E1-2.git`입니다. 저장소 공개 범위는 이 화면에서 확인되지 않았습니다.
 
+GitHub 화면에는 서로 다른 두 가지 시작 방법이 표시됩니다. **두 목록을 모두 순서대로 실행하는 것이 아니라, 현재 상황에 맞는 한 가지를 고릅니다.**
+
+| 화면의 안내 | 의미 | 현재 E1-2 상황 |
+|---|---|---|
+| `create a new repository on the command line` | 컴퓨터에 새 Git 저장소와 첫 커밋부터 만드는 예시 | 이미 로컬 저장소와 커밋이 있으므로 이 목록을 반복할 필요가 없습니다. 특히 `echo ... >> README.md`는 기존 README에 글을 덧붙이는 명령입니다. |
+| `push an existing repository from the command line` | 이미 있는 로컬 저장소를 GitHub에 연결하고 올리는 예시 | **현재 사용할 경로입니다.** 연결 여부와 브랜치를 먼저 확인하고 필요한 명령만 실행합니다. |
+
+**확인된 현재 상태:** 로컬 E1-2는 `main` 브랜치이며, 커밋 `641021e`, `15e7c36`, `8089530`이 있습니다. 문서 정리 직전 `git remote -v`는 아무것도 출력하지 않아 원격 연결이 확인되지 않았습니다. GitHub 저장소 화면은 사용자 제공 이미지로 확인했지만, 연결과 push의 성공 출력은 아직 없습니다.
+
+##### 5-1. 기존 원격 연결 확인
+
+아래는 **이후 PowerShell에서 실행할 안내**입니다. 이미 값이 나오면 새로 추가하기 전에 주소를 확인합니다.
+
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행 예정: C:\all in one\e1-2
+# 현재 저장소에 연결된 원격 주소 확인
+<span style="color: #0969da;">git remote -v</span></code></pre>
+
+결과가 없으면 `origin`이 연결되지 않은 상태입니다. `origin`은 원격 저장소에 붙이는 통상적인 이름입니다.
+
+##### 5-2. GitHub 저장소를 origin으로 연결
+
+`git remote -v`에 `origin`이 없을 때만 다음 명령을 실행합니다. 화면에 표시된 주소를 사용합니다.
+
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행 예정
+# GitHub 저장소 주소를 origin이라는 이름으로 등록
+<span style="color: #0969da;">git remote add origin https://github.com/modoofighting/E1-2.git</span>
+# 등록된 주소 확인
+<span style="color: #0969da;">git remote -v</span></code></pre>
+
+성공하면 Git이 별도 메시지를 출력하지 않을 수 있습니다. 확인 명령에서 주소가 `fetch`와 `push`용으로 표시되는지 살펴보고, **실제 출력은 실행 후 기록**합니다. 원격 이름이 이미 존재한다는 오류가 나면 등록을 반복하지 않고 기존 주소를 먼저 확인합니다.
+
+##### 5-3. main 브랜치 push
+
+원격 주소와 올릴 커밋, 저장소 공개 범위를 확인한 뒤 아래를 실행합니다. 인증이 필요하면 GitHub가 요청하는 로그인 절차를 진행합니다.
+
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행 예정
+# 로컬 main의 커밋을 origin의 main에 올리고 추적 관계 설정
+<span style="color: #0969da;">git push -u origin main</span></code></pre>
+
+`push`는 로컬 **커밋**을 원격 저장소로 전송합니다. `-u`는 이후 push·pull에 사용할 원격 추적 관계를 설정합니다. GitHub 예시의 `git branch -M main`은 브랜치 이름을 바꾸는 명령인데, 현재 브랜치가 이미 `main`이므로 다시 실행할 필요가 없습니다.
+
+이 안내를 추가하면서 README가 다시 수정됐습니다. **아직 커밋하지 않은 변경은 push에 포함되지 않으므로**, 이 기록도 올리려면 별도 `git add`와 `git commit`이 필요합니다. 실제 push 성공 여부와 GitHub에 보이는 파일·커밋은 실행 후 확인해 기록합니다.
 
 ---
+
 ## STEP 3. Python 퀴즈 게임 제작 — 7개 덩어리
 
 **목적:** 첨부한 「과제 완전 분해 가이드」처럼 프로그램을 한 번에 만들지 않고, 검증 가능한 7개 작업 단위로 나눠 완성한다. 아래의 `pass`나 `...`는 **설계용 자리표시자**이며, 이것만으로 게임이 완성되었다는 뜻이 아니다.
