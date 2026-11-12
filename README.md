@@ -167,7 +167,7 @@ STEP 6. 별도 폴더에서 clone → 변경·push → 원본 폴더에서 pull
 | 데이터 저장        | 프로젝트 최상위의 **`state.json`**, UTF-8                      |
 | 버전 관리         | Git·GitHub (의미 있는 커밋 10개 이상, 브랜치 병합, clone·pull)       |
 | 외부 라이브러리      | 사용하지 않음; Python 표준 라이브러리는 사용 가능                        |
-| GitHub 저장소 주소 | **[생성 후 입력]**                                          |
+| GitHub 저장소 주소 | https://github.com/modoofighting/E1-2                       |
 
 #### 01.1 퀴즈 주제 선정 이유
 
@@ -1457,7 +1457,22 @@ git switch -c test/input-validation
 Switched to a new branch 'test/input-validation'
 ```
 
-현재 `test/input-validation` 브랜치가 생성됐습니다. 이 브랜치에서 실제 입력 검증 결과를 README에 기록하고 커밋한 다음, `main`으로 돌아가 병합합니다. 브랜치 생성만으로 병합 실습이 완료된 것은 아닙니다.
+`test/input-validation` 브랜치에서 빈 입력 테스트 결과를 README에 기록하고 `1812455` 커밋을 만들었습니다. 이후 `main`으로 돌아가 병합하고 GitHub에 push했습니다.
+
+```powershell
+git commit -m "docs: record input validation test"
+git switch main
+git merge --no-ff test/input-validation -m "merge: record input validation test"
+git push origin main
+```
+
+```text
+[test/input-validation 1812455] docs: record input validation test
+Merge made by the 'ort' strategy.
+fef8673..f665025  main -> main
+```
+
+이 기록은 사용자가 제공한 터미널 출력 기준입니다. 브랜치 생성·커밋·병합·push가 확인됐습니다.
 
 ```powershell
 # main에서 현재 상태 확인
@@ -1557,13 +1572,13 @@ git config --local --get user.email
 
 ### README에 실제 완료 후 채울 내용
 
-- **GitHub 저장소 URL:** [실제 URL]
+- **GitHub 저장소 URL:** https://github.com/modoofighting/E1-2
 - **Python 버전:** [python --version 실제 출력]
 - **정상 실행 화면:** [실제 스크린샷 경로]
 - **퀴즈 추가·풀이·목록·점수 화면:** [실제 캡처 경로]
 - **저장·재시작 검증:** [실제 실행 로그]
-- **브랜치·병합:** [git log --oneline --graph 실제 출력]
-- **최종 커밋 개수:** [git rev-list --count HEAD 및 내용 검토]
+- **브랜치·병합:** `test/input-validation`의 `1812455`를 `main` 병합 커밋 `f665025`로 병합
+- **현재 커밋 개수:** 7개 (`git rev-list --count HEAD`, 2026-11-12 확인; 과제 기준 10개 이상 미달)
 
 ### 17. 필수 테스트 시나리오(Test Case)
 
@@ -1589,9 +1604,9 @@ git config --local --get user.email
 | TC-16 | 실행 중 Ctrl+C | 안내·가능한 저장·안전 종료 | [기록] | [ ] |
 | TC-17 | 입력 스트림 종료(EOF) | 안내·가능한 저장·안전 종료 | [기록] | [ ] |
 | TC-18 | 저장된 퀴즈 목록이 0개인 데이터 시험 | 출제·목록에서 적절한 안내 | [기록] | [ ] |
-| TC-19 | 브랜치에서 구현 후 병합 | `git log --graph`에 병합 이력 | [기록] | [ ] |
+| TC-19 | 브랜치에서 구현 후 병합 | `git log --graph`에 병합 이력 | `test/input-validation` 브랜치의 입력 검증 기록을 `main`에 병합하고 `origin/main`에 push 확인 | [x] |
 | TC-20 | 별도 clone → commit/push → 원본 pull | 같은 변경이 원본에 반영 | [기록] | [ ] |
-| TC-21 | `git rev-list --count HEAD` | 의미 있는 커밋 10개 이상 | [기록] | [ ] |
+| TC-21 | `git rev-list --count HEAD` | 의미 있는 커밋 10개 이상 | 현재 7개 확인. 목표 10개 미달 | [ ] |
 
 > **안전 원칙:** 저장 파일 손상 시험은 `state.json`의 **별도 복사본이나 테스트용 폴더**에서만 수행합니다. 실제 학습 데이터를 임의로 훼손·삭제하지 않습니다. `EOFError` 같은 상황은 수동 조작이 어려울 수 있으므로 표준 라이브러리 테스트 등을 활용해 재현할 수 있습니다.
 
