@@ -708,7 +708,20 @@ GitHub 화면에는 서로 다른 두 가지 시작 방법이 표시됩니다. *
 
 **목적:** 첨부한 「과제 완전 분해 가이드」처럼 프로그램을 한 번에 만들지 않고, 검증 가능한 7개 작업 단위로 나눠 완성한다. 아래의 `pass`나 `...`는 **설계용 자리표시자**이며, 이것만으로 게임이 완성되었다는 뜻이 아니다.
 
+### 처음 시작할 때: 파일 위치와 붙여 넣는 순서
+
+1. VS Code에서 이 프로젝트 폴더 `C:\Users\skylandspace010191\E1-2`를 연다.
+2. 왼쪽 파일 목록에서 `main.py`를 연다. 파일이 없다면 프로젝트 이름을 마우스 오른쪽 버튼으로 눌러 **New File**을 선택하고 이름을 `main.py`로 만든다. `docs` 폴더 안이 아니라 README와 같은 프로젝트 최상위 위치에 만든다.
+3. 각 덩어리의 코드는 모두 이 **같은 `main.py` 파일**에 순서대로 작성한다. 새 Python 파일을 덩어리마다 만들지 않는다.
+4. 덩어리 1의 `Quiz` 클래스 코드를 파일 맨 위에 넣는다. 덩어리 2의 `default_quizzes` 목록은 클래스가 끝난 다음, 클래스 바깥쪽(맨 왼쪽부터)에 넣는다. 덩어리 3의 `QuizGame` 클래스는 퀴즈 목록 아래에 넣는다.
+5. 이후 덩어리에서 기존 클래스의 메서드를 구현할 때는 해당 `pass`가 있는 메서드 내용을 교체한다. 같은 메서드를 파일 아래에 또 붙이지 않는다. `import`문은 파일 맨 위, 게임 시작 코드는 모든 클래스와 함수가 끝난 파일 맨 아래에 둔다.
+6. 코드를 붙인 뒤 `Ctrl+S`로 저장하고, 터미널에서 `python main.py`로 실행한다. 아직 게임 시작 코드가 없는 단계에서는 실행해도 화면에 아무것도 나오지 않을 수 있다.
+
+**다시 시작하는 경우:** 기존 `main.py`를 삭제했다면 위 순서대로 최상위에 새 `main.py`를 만든 다음, 덩어리 1부터 작성한다. 이전 코드와 새 코드를 섞어 두지 않는다. README의 코드 블록에 `pass`나 `...`가 있으면 설명용 자리표시자인지 실제 완성 코드인지 해당 덩어리 설명을 먼저 확인한다.
+
 ### 덩어리 1. `Quiz` 클래스 — 문제 하나의 설계도
+
+**붙여 넣을 위치:** 새 `main.py` 파일의 첫 줄부터 넣는다. 덩어리 1 확인을 위해 임시 실행 코드를 썼다면 확인 후 지운다. 덩어리 2에서는 그 자리에 기본 퀴즈 목록을 이어 작성한다.
 
 **필수:** `question`(질문), `choices`(선택지 4개), `answer`(1~4 정답 번호). `show()`는 문제와 선택지를 출력하고, `check()`는 사용자가 고른 번호가 정답인지 반환한다.
 
@@ -738,21 +751,42 @@ class Quiz:
 
 **필수:** STEP 0의 표에 제안한 명령어 문제 **5개 이상**을 `Quiz` 인스턴스로 만든다. 각 문제에는 질문·4개 선택지·정답 번호가 있어야 한다.
 
+**어디에 작성하나요?** 새 파일은 만들지 않는다. 프로젝트 폴더 바로 아래에 있는 `main.py`를 연다. `class Quiz:` 코드는 그대로 두고, 덩어리 1에서 동작을 확인하려고 클래스 아래에 임시로 넣었던 `quiz = Quiz(...)`, `quiz.show()`, `print(...)` 코드를 지운다. 그 자리에 아래의 `default_quizzes = [...]` 목록을 붙여 넣고 저장한다. `default_quizzes`는 게임에서 사용할 기본 문제들을 담아 두는 이름이다.
+
 ```python
-# 첫 번째 문제의 데이터 구성 예시 (나머지 4개도 같은 방식)
 default_quizzes = [
     Quiz(
         "Ubuntu Bash에서 현재 디렉터리 경로를 확인하는 명령어는?",
         ["ls", "pwd", "cd", "mkdir"],
-        2
+        2,
     ),
-    # TODO: 문제 2~5도 별개의 Quiz 객체로 추가
+    Quiz(
+        "Docker 이미지로 새 컨테이너를 생성하고 실행하는 명령어는?",
+        ["docker ps", "docker images", "docker run", "docker stop"],
+        3,
+    ),
+    Quiz(
+        "Dockerfile과 빌드 컨텍스트로 새 이미지를 만드는 명령어는?",
+        ["docker build", "docker pull", "docker exec", "docker logs"],
+        1,
+    ),
+    Quiz(
+        "Git에서 준비한 변경을 로컬 커밋 이력으로 기록하는 명령어는?",
+        ["git push", "git commit", "git add", "git status"],
+        2,
+    ),
+    Quiz(
+        "원격 GitHub 저장소를 새 로컬 폴더로 복제하는 명령어는?",
+        ["git fetch", "git pull", "git checkout", "git clone"],
+        4,
+    ),
 ]
 ```
 
-**완료 확인:** 저장 파일이 없는 첫 실행에서 5개 문제가 준비되는지 확인한다. 위 코드는 **한 문제만 예시**로 적은 것이며, 다섯 문제를 실제로 작성해야 한다.
+**초보자 확인 방법:** `main.py`를 저장하고 터미널에서 `python main.py`를 실행해 오류가 없는지 확인한다. 이 단계에서는 메뉴나 문제 출력 기능을 아직 만들지 않았으므로, 실행해도 퀴즈가 화면에 나오지 않는 것이 정상이다. 코드에서 `default_quizzes` 목록에 `Quiz(`가 다섯 번 있고, 각 문제에 선택지가 네 개씩 있으며 정답 번호가 맞는지 확인한다. 기본 문제를 실제 게임에 불러오는 기능은 이후 덩어리에서 연결한다.
 
-- [ ] 직접 선정한 기본 퀴즈 5개 이상 구현
+- [ ] 루트 `main.py`의 임시 확인 코드를 기본 퀴즈 목록으로 교체
+- [ ] 기본 퀴즈 5개 이상을 `Quiz` 객체로 구현
 - [ ] 각 문제의 네 선택지와 정답 번호 검수
 - [ ] 기능 단위 커밋
 
@@ -760,11 +794,13 @@ default_quizzes = [
 
 **필수:** 전체 퀴즈 목록, 최고 점수, 메뉴·출제·추가·목록·점수·파일 입출력의 책임을 나눠 맡는다.
 
+**붙여 넣을 위치:** 덩어리 2의 `default_quizzes` 목록이 닫히는 `]` 다음 줄에, 같은 `main.py` 파일의 왼쪽 끝부터 `class QuizGame:`을 작성한다. 클래스 안 메서드들은 클래스보다 4칸, 메서드 안 코드는 8칸 들여쓴다. 이 클래스 정의는 `default_quizzes` 아래에 한 번만 둔다.
+
 ```python
 # 각 메서드는 이후 덩어리에서 실제 동작을 구현하는 자리입니다.
 class QuizGame:
     def __init__(self):
-        self.quizzes = []      # Quiz 객체 목록
+        self.quizzes = default_quizzes.copy()  # 기본 Quiz 객체 목록 복사
         self.best_score = 0    # 게임 최고 점수
 
     def show_menu(self):
@@ -797,6 +833,8 @@ class QuizGame:
 
 **중요:** 이것은 구조 설명 코드다. 메서드에 `pass`가 남아 있다면 **기능 완성으로 표시하면 안 된다.**
 
+**실행하면 무엇이 보이나요?** 덩어리 3까지는 클래스를 정의만 하므로 `python main.py`를 실행해도 화면에 아무것도 나오지 않는 것이 정상이다. `pass`는 메서드가 아직 비어 있다는 표시이기도 하다. 메뉴가 실제로 나타나려면 뒤 단계에서 메서드를 구현하고, 파일 맨 아래에서 `QuizGame` 객체를 만들고 실행해야 한다.
+
 - [ ] 두 클래스가 서로 다른 책임을 담당
 - [ ] 문제 출제·추가·목록·점수 기능별 메서드 완성
 - [ ] 각 기능의 실제 실행 결과 확인 및 커밋
@@ -805,46 +843,162 @@ class QuizGame:
 
 **메뉴:** `1 퀴즈 풀기 / 2 퀴즈 추가 / 3 퀴즈 목록 / 4 최고 점수 / 5 종료`.
 
-```text
-========================================
-          코디세이 기술 탐험 퀴즈
-========================================
-1. 퀴즈 풀기
-2. 퀴즈 추가
-3. 퀴즈 목록
-4. 최고 점수 확인
-5. 종료
-========================================
-선택: 
+**이 덩어리에서 하는 일:** `QuizGame`에 메뉴를 보여주고, 퀴즈를 내고, 메뉴 선택을 반복하는 메서드를 작성한다. 새 파일은 만들지 않는다.
+
+**그대로 둠:** `Quiz` 클래스, `default_quizzes`, `QuizGame.__init__()`, 그리고 `add_quiz()`, `show_list()`, `show_score()`, `save()`, `load()`는 이 덩어리에서 건드리지 않는다.
+
+**교체 A → B:** `QuizGame` 안의 기존 `show_menu()` 메서드 전체를 아래 `show_menu()`로 바꾼다. 기존 `play()`와 `run()`도 각각 메서드 시작 줄부터 다음 메서드 시작 직전까지 전체를 지우고, 아래의 같은 이름 메서드로 바꾼다. 메서드 이름이 중복되지 않게 한다. `get_choice()`는 이 덩어리에서는 그대로 두며 덩어리 6에서 다룬다. 메서드 정의 앞에는 공백 4칸, 메서드 안 코드 앞에는 공백 8칸을 둔다.
+
+**코드 A — `QuizGame` 안에서 아래 세 메서드 전체를 찾는다:**
+
+```python
+    def show_menu(self):
+        pass  # 덩어리 4에서 구현
+
+    def play(self):
+        pass  # 문제 출제·채점
+
+    def run(self):
+        pass  # 메뉴 반복·종료 관리
 ```
 
-**동작 규칙:** `while`로 메뉴를 반복하고, `if/elif/else`로 선택한 기능을 수행한다. `for`로 저장된 퀴즈를 순회한다. 퀴즈가 없거나 최고 점수가 아직 없는 경우에도 정상 안내가 필요하다.
+아래 **코드 B 전체**로 코드 A를 교체한다.
 
-- [ ] 메뉴 1~5번이 각각 올바른 기능으로 연결
+```python
+# 코드 B
+    def show_menu(self):
+        print("\n=== 코디세이 기술 탐험 퀴즈 ===")
+        print("1. 퀴즈 풀기")
+        print("2. 퀴즈 추가")
+        print("3. 퀴즈 목록")
+        print("4. 최고 점수 확인")
+        print("5. 종료")
+
+    def play(self):
+        if not self.quizzes:
+            print("등록된 퀴즈가 없습니다.")
+            return
+
+        score = 0
+        for quiz in self.quizzes:
+            quiz.show()
+            answer = input("정답 번호를 입력하세요: ")
+            if answer.isdigit() and quiz.check(int(answer)):
+                print("정답입니다!")
+                score += 1
+            else:
+                print(f"오답입니다. 정답은 {quiz.answer}번입니다.")
+
+        print(f"결과: {score}/{len(self.quizzes)}개 정답")
+        if score > self.best_score:
+            self.best_score = score
+
+    def run(self):
+        while True:
+            self.show_menu()
+            choice = input("선택: ").strip()
+
+            if choice == "1":
+                self.play()
+            elif choice == "2":
+                self.add_quiz()       # 덩어리 6에서 구현
+            elif choice == "3":
+                self.show_list()      # 덩어리 6에서 구현
+            elif choice == "4":
+                self.show_score()     # 덩어리 6에서 구현
+            elif choice == "5":
+                print("게임을 종료합니다.")
+                break
+            else:
+                print("1~5 중에서 입력해 주세요.")
+```
+
+**아직 구현하지 않는 기능:** 메뉴 2~4에 연결된 퀴즈 추가·목록·점수 메서드는 뒤 덩어리에서 구현한다. 게임 실행 코드는 덩어리 7에서 파일 맨 아래에 추가하므로, 덩어리 4 직후 `python main.py`를 실행해도 메뉴가 시작되지 않는 것이 정상이다.
+
+- [ ] 메뉴 출력 및 반복 흐름 구현
 - [ ] 사용자 답과 정답을 비교하여 정답/오답 안내
-- [ ] 모든 문제를 풀면 맞힌 수·총 문제 수·점수 출력
-- [ ] 퀴즈 추가 직후 목록에 보임, 최고점 갱신 가능
+- [ ] 모든 기본 문제를 풀면 맞힌 수와 총 문제 수 출력
 
 ### 덩어리 5. `state.json` 저장·불러오기
 
 **과제 원문이 요구하는 파일명은 `state.json`이며 프로젝트 루트에 둔다.** 참고 README의 `pickle`/`quizzes.pkl`은 사용하지 않는다. JSON에는 최소 `quizzes`와 `best_score`가 있어야 한다.
 
+**이 덩어리에서 `main.py`에 넣을 코드:** 아래 독립 예시를 그대로 실행하는 것이 아니라, 게임 클래스의 저장·불러오기 메서드를 실제로 구현한다.
+
+**그대로 둠:** `Quiz`, `default_quizzes`, `QuizGame.__init__()`, `show_menu()`, `play()`, `run()`의 나머지 코드는 유지한다.
+
+**새로 추가:** 파일 첫 줄(다른 import가 있으면 그 import들 모음)에 `import json`을 추가한다.
+
+**교체 A → B:** `QuizGame` 안의 기존 `save()` 메서드 전체를 아래 `save()`로 교체한다. 기존 `load()` 메서드 전체도 아래 `load()`로 교체한다. 메서드 안의 `pass`만 바꾸는 것이 아니라 `def save...` 또는 `def load...` 줄부터 메서드 본문 전체를 교체한다.
+
+**코드 A — `QuizGame` 안에서 아래 두 메서드 전체를 찾는다:**
+
 ```python
-import json  # 외부 패키지 설치가 필요 없는 Python 표준 모듈
+    def save(self):
+        pass  # 덩어리 5에서 JSON 저장
 
-# 아래는 JSON 동작을 이해하기 위한 독립 예시입니다.
-data = {"quizzes": [], "best_score": 0}
-
-# w = 쓰기, encoding = 텍스트 인코딩
-with open("state.json", "w", encoding="utf-8") as file:
-    json.dump(data, file, ensure_ascii=False, indent=2)
-
-# r = 읽기, json.load = 파일에서 Python 데이터로 변환
-with open("state.json", "r", encoding="utf-8") as file:
-    restored = json.load(file)
+    def load(self):
+        pass  # 덩어리 5에서 JSON 읽기
 ```
 
-**주의:** 이 독립 예시를 실행하면 기존 `state.json`을 덮어쓸 수 있다. **실제 저장 데이터가 있는 프로젝트에서는 실행하지 않는다.** 최종 게임은 `Quiz` 객체를 JSON 저장 가능한 `dict`로 바꿔 저장하고, 불러올 때 다시 객체로 복원해야 한다.
+아래 **코드 B 전체**로 코드 A를 교체한다.
+
+**정해진 위치에 한 줄 추가:** `play()`에서 최고 점수 갱신이 끝난 뒤 `self.save()`를 추가한다. `run()`의 5번 종료 분기에는 종료 안내문 앞에 `self.save()`를 추가한다. 기존 분기 전체를 교체하지 않는다.
+
+**덩어리 7과 연결:** 파일 아래에 실행 코드가 이미 있다면, `game.run()` 바로 위에 `game.load()` 한 줄을 추가한다. 실행 코드가 없다면 덩어리 7에서 새로 작성한다.
+
+```python
+    def save(self):
+        data = {
+            "quizzes": [
+                {
+                    "question": quiz.question,
+                    "choices": quiz.choices,
+                    "answer": quiz.answer,
+                }
+                for quiz in self.quizzes
+            ],
+            "best_score": self.best_score,
+        }
+        with open("state.json", "w", encoding="utf-8") as file:
+            json.dump(data, file, ensure_ascii=False, indent=2)
+        print("진행 상황을 저장했습니다.")
+
+    def load(self):
+        try:
+            with open("state.json", "r", encoding="utf-8") as file:
+                data = json.load(file)
+            self.quizzes = [
+                Quiz(item["question"], item["choices"], item["answer"])
+                for item in data["quizzes"]
+            ]
+            self.best_score = data["best_score"]
+            print("저장된 퀴즈를 불러왔습니다.")
+        except FileNotFoundError:
+            self.quizzes = default_quizzes.copy()
+            self.best_score = 0
+            print("저장 파일이 없어 기본 퀴즈로 시작합니다.")
+```
+
+`self.save()`는 `play()`에서 최고 점수가 바뀐 뒤, `run()`에서 5번 종료를 선택했을 때 호출한다. 게임 시작 코드는 다음과 같이 수정한다.
+
+```python
+if __name__ == "__main__":
+    game = QuizGame()
+    game.load()
+    game.run()
+```
+
+이 예시는 파일이 없는 첫 실행을 처리한다. 손상된 JSON이나 파일 접근 오류 처리는 덩어리 6에서 추가한다.
+
+```python
+import json
+data = {"quizzes": [], "best_score": 0}
+with open("state.json", "w", encoding="utf-8") as file:
+    json.dump(data, file, ensure_ascii=False, indent=2)
+```
+
+위 짧은 코드는 JSON 형식을 이해하기 위한 참고 예시일 뿐이다. 게임 기능은 위의 `save()`와 `load()` 메서드로 구현한다.
 
 - [ ] 최초 실행에서 기본 퀴즈로 시작
 - [ ] 퀴즈 추가·최고점 변경 후 JSON에 저장
@@ -855,25 +1009,30 @@ with open("state.json", "r", encoding="utf-8") as file:
 
 **필수 입력 사례:** 공백을 포함한 정상 입력, `abc`, 범위 밖 숫자, 빈 Enter. **필수 종료 사례:** `Ctrl+C`(`KeyboardInterrupt`), `EOFError`. **필수 파일 사례:** 파일 없음·손상·읽기/쓰기 실패.
 
+**코드 A — `QuizGame` 안의 기존 입력 메서드:**
+
 ```python
-# 공통 입력 함수의 아이디어(숫자 오류 처리 예시)
-while True:
-    try:
-        raw = input("메뉴 선택(1~5): ").strip()
-        if raw == "":
-            print("입력값이 없습니다. 다시 입력하세요.")
-            continue
-        choice = int(raw)
-        if not 1 <= choice <= 5:
-            print("1~5 사이 숫자를 입력하세요.")
-            continue
-        break
-    except ValueError:
-        print("숫자를 입력하세요.")
-    except (KeyboardInterrupt, EOFError):
-        print("\n입력이 종료되었습니다. 저장을 시도한 후 종료합니다.")
-        # 최종 게임에서 save() 후 안전 종료되도록 구현
-        break
+    def get_choice(self, minimum, maximum):
+        pass  # 덩어리 6에서 공통 입력 검증 구현
+```
+
+아래 **코드 B 전체**로 코드 A를 교체한다. `play()`와 `run()`에서 이미 `self.get_choice(...)`를 호출하므로, 그 호출 줄은 그대로 둔다.
+
+```python
+    def get_choice(self, minimum, maximum):
+        while True:
+            try:
+                raw = input(f"{minimum}~{maximum} 중 번호를 입력하세요: ").strip()
+                if raw == "":
+                    print("입력값이 없습니다. 다시 입력하세요.")
+                    continue
+                choice = int(raw)
+                if not minimum <= choice <= maximum:
+                    print(f"{minimum}~{maximum} 사이 숫자를 입력하세요.")
+                    continue
+                return choice
+            except ValueError:
+                print("숫자를 입력하세요.")
 ```
 
 **완료 확인:** 잘못된 입력에서 오류 추적문(Traceback) 없이 재입력하고, 중단 시 가능한 범위에서 저장을 시도한 후 종료한다.
@@ -886,6 +1045,18 @@ while True:
 ### 덩어리 7. `main.py` 시작점
 
 **역할:** Python이 `main.py` 파일을 직접 실행할 때 게임 인스턴스를 만들고, 저장된 데이터부터 읽은 다음 게임을 시작한다.
+
+**교체 A → B:** `main.py` 맨 아래에 실행 코드가 이미 있으면 그 실행 코드 블록만 아래 코드로 교체한다. `Quiz`와 `QuizGame` 클래스는 그대로 둔다. 아직 실행 코드가 없다면 파일 맨 마지막에 새로 추가한다. 이 코드는 한 번만 둔다.
+
+**코드 A — 파일 맨 아래에 있는 기존 실행 코드:**
+
+```python
+if __name__ == "__main__":
+    game = QuizGame()
+    game.run()
+```
+
+아래 **코드 B 전체**로 코드 A를 교체한다.
 
 ```python
 # 프로그램을 직접 실행했을 때만 아래 코드를 실행
@@ -1386,18 +1557,18 @@ git config --local --get user.email
 
 | 번호 | 테스트 방법 | 기대 결과 | 실제 결과 | 상태 |
 |---|---|---|---|---|
-| TC-01 | `python --version` | 3.10 이상 출력 | [기록] | [ ] |
-| TC-02 | `python main.py` | 메뉴 1~5 표시 | [기록] | [ ] |
-| TC-03 | 메뉴에 ` 1 ` 입력 | 공백 제거 후 퀴즈 시작 | [기록] | [ ] |
-| TC-04 | 메뉴에 `abc` 입력 | 안내 후 재입력 | [기록] | [ ] |
-| TC-05 | 메뉴에 `9` 입력 | 범위 안내 후 재입력 | [기록] | [ ] |
+| TC-01 | `python --version` | 3.10 이상 출력 | `Python 3.15.2` | [x] |
+| TC-02 | `python main.py` | 메뉴 1~5 표시 | 메뉴 1~5 표시 확인 | [x] |
+| TC-03 | 메뉴에 ` 1 ` 입력 | 공백 제거 후 퀴즈 시작 | 공백 포함 입력 후 퀴즈 시작 확인 | [x] |
+| TC-04 | 메뉴에 `abc` 입력 | 안내 후 재입력 | `숫자를 입력하세요.` 안내 후 메뉴 입력 재요청 확인 | [x] |
+| TC-05 | 메뉴에 `9` 입력 | 범위 안내 후 재입력 | `1~5 사이 숫자를 입력하세요.` 안내 후 메뉴 입력 재요청 확인 | [x] |
 | TC-06 | 메뉴에 Enter만 입력 | 빈 값 안내 후 재입력 | [기록] | [ ] |
 | TC-07 | 정답 번호에 `0`, `5`, `abc` 입력 | 안내 후 재입력 | [기록] | [ ] |
-| TC-08 | 기본 5문제를 모두 풀기 | 정답·오답·최종 점수 출력 | [기록] | [ ] |
-| TC-09 | 메뉴에서 새 퀴즈 추가 | 4개 선택지와 정답이 저장됨 | [기록] | [ ] |
-| TC-10 | 퀴즈 목록 확인 | 추가된 문제 표시 | [기록] | [ ] |
-| TC-11 | 최고 점수 확인 | 최고 점수 표시·갱신 | [기록] | [ ] |
-| TC-12 | 종료 후 재시작 | 추가 문제 및 최고 점수 유지 | [기록] | [ ] |
+| TC-08 | 퀴즈를 모두 풀기 | 정답·오답·최종 점수 출력 | 저장된 퀴즈 6개를 풀어 6/6 정답, 100점 출력 및 저장 확인 | [x] |
+| TC-09 | 메뉴에서 새 퀴즈 추가 | 4개 선택지와 정답이 저장됨 | Python 출력 문제와 선택지 4개를 추가하고 저장 메시지 확인. 선택지는 이후 `state.json`에서 바로잡음 | [x] |
+| TC-10 | 퀴즈 목록 확인 | 추가된 문제 표시 | 메뉴 3번에서 저장된 퀴즈 6개 모두 표시 확인 | [x] |
+| TC-11 | 최고 점수 확인 | 최고 점수 표시·갱신 | 최고 점수 100점 / 100점 표시 확인 | [x] |
+| TC-12 | 종료 후 재시작 | 추가 문제 및 최고 점수 유지 | 재실행 시 저장된 퀴즈를 불러오고 추가 문제가 출제됨. 최고 점수 100점 복원 확인 | [x] |
 | TC-13 | `state.json`이 없는 별도 테스트 환경에서 실행 | 기본 문제로 실행 가능 | [기록] | [ ] |
 | TC-14 | 손상 JSON을 **복사본**에서 시험 | 안내 및 기본 데이터 복구, 안전 실행 | [기록] | [ ] |
 | TC-15 | 파일 저장 실패 상황 시험 | 오류 안내, 프로그램 비정상 종료 방지 | [기록] | [ ] |
