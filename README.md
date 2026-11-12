@@ -612,6 +612,49 @@ git commit -m "chore: initialize E1-2 project and README"
 
 **입력 중 `>>`가 표시될 때:** PowerShell은 닫히지 않은 따옴표처럼 명령이 아직 끝나지 않았다고 판단하면 다음 줄을 기다립니다. `Ctrl+C`를 누르면 입력 중인 명령을 취소하고 원래 `PS ...>` 프롬프트로 돌아갑니다. 이후 따옴표 두 개를 모두 포함해 명령을 다시 입력합니다.
 
+#### 첫 커밋 이후 README 기록과 두 번째 커밋
+
+첫 커밋 `641021e`의 결과를 README에 기록한 뒤, 변경된 README를 두 번째 커밋으로 남겼습니다. 아래는 사용자가 공유한 실제 명령과 출력입니다.
+
+##### 1. 수정된 README를 스테이징
+
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
+# 수정된 README 내용을 다음 커밋 대상으로 준비
+<span style="color: #0969da;">git add README.md</span></code></pre>
+
+```text
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+```
+
+**스테이징**은 다음 커밋에 담을 파일의 현재 내용을 **스테이징 영역**에 미리 준비하는 과정입니다. `git add README.md`가 README를 스테이징하는 명령입니다. 이 명령은 준비만 하며 아직 커밋을 만들지 않습니다. 위 출력은 줄바꿈 방식에 대한 경고입니다.
+
+##### 2. 스테이징된 파일 이름 확인
+
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
+# 다음 커밋에 준비된 파일 이름만 확인
+<span style="color: #0969da;">git diff --cached --name-only</span></code></pre>
+
+```text
+README.md
+```
+
+이때 다음 커밋 대상으로 준비된 파일이 README 하나임을 확인했습니다. `--cached`는 준비된 내용을, `--name-only`는 파일 이름만 표시합니다.
+
+##### 3. 두 번째 커밋 생성
+
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
+# 스테이징된 README 변경을 로컬 Git 이력에 기록
+<span style="color: #0969da;">git commit -m "docs: record first commit"</span></code></pre>
+
+```text
+[main 15e7c36] docs: record first commit
+ 1 file changed, 53 insertions(+), 6 deletions(-)
+```
+
+`15e7c36`은 두 번째 커밋의 짧은 해시입니다. 파일 하나가 변경됐으며 53줄 추가, 6줄 삭제가 기록됐습니다. `docs:`는 문서 작업을 나타내기 위해 선택한 메시지 접두사이고, `record first commit`은 첫 커밋 결과를 기록한다는 뜻입니다. Codex가 `git log`와 `git show`로 이 커밋과 변경 통계를 확인했습니다.
+
+**현재 상태:** 두 커밋은 로컬 `main` 브랜치에 있습니다. 이 두 번째 커밋 결과를 README에 추가한 내용은 `15e7c36` 이후의 변경이므로 다음 커밋에 담을 수 있습니다. GitHub에 push한 결과는 아직 확인되지 않았습니다.
+
 ##### 5. GitHub 연결과 push — 첫 커밋 후 수행
 
 

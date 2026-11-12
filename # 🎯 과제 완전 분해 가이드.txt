@@ -1,0 +1,316 @@
+# 🎯 과제 완전 분해 가이드
+
+완전 초보자도 할 수 있도록 **단계별**로 쪼개드릴게요! 😊
+
+---
+
+## 📌 한 줄 요약: 이 과제가 뭐냐?
+
+> **"퀴즈 게임 프로그램을 Python으로 만들고, Git으로 작업 기록을 남겨서 GitHub에 올려라"**
+
+---
+
+## 🗺️ 전체 흐름 한눈에 보기
+
+```
+STEP 1: 환경 준비        → Python, Git, VSCode 설치
+STEP 2: Git 저장소 만들기 → GitHub + 로컬 연결
+STEP 3: 퀴즈 게임 코딩   → 클래스, 메뉴, 파일저장
+STEP 4: Git 기록 남기기  → 커밋, 브랜치, 병합
+STEP 5: README 작성      → 설명 문서 만들기
+STEP 6: clone/pull 실습  → 명령어 경험하기
+```
+
+---
+
+## 🔨 STEP 1: 환경 준비 (코딩 전 준비물)
+
+### 설치해야 할 것들
+
+| 도구 | 역할 | 설치 주소 |
+|------|------|-----------|
+| **Python 3.10+** | 프로그램 실행 언어 | python.org |
+| **Git** | 작업 기록 도구 | git-scm.com |
+| **VSCode** | 코드 편집기 | code.visualstudio.com |
+| **GitHub 계정** | 코드 올리는 곳 | github.com |
+
+### ✅ 설치 확인 방법 (터미널에서)
+```bash
+python --version    # Python 3.10.x 나오면 OK
+git --version       # git version 나오면 OK
+```
+
+---
+
+## 🔨 STEP 2: Git 저장소 만들기
+
+### 순서
+```
+1. GitHub에서 새 저장소(repository) 생성
+2. 내 컴퓨터에 폴더 만들기
+3. 그 폴더를 Git 저장소로 초기화
+4. GitHub 저장소와 연결
+```
+
+### 실제 명령어
+```bash
+mkdir quiz-game          # 폴더 만들기
+cd quiz-game             # 폴더 들어가기
+git init                 # Git 저장소 초기화
+git remote add origin [GitHub URL]  # GitHub 연결
+```
+
+---
+
+## 🔨 STEP 3: 퀴즈 게임 코딩 (핵심!)
+
+### 만들어야 할 파일
+```
+quiz-game/
+├── main.py        ← 프로그램 실행 파일 (여기서 시작)
+├── state.json     ← 퀴즈/점수 저장 파일 (자동 생성됨)
+├── .gitignore     ← Git이 무시할 파일 목록
+└── README.md      ← 프로젝트 설명서
+```
+
+---
+
+### 📦 코딩 쪼개기 (7개 덩어리)
+
+#### 덩어리 1️⃣: Quiz 클래스 만들기
+**뭐냐?** → 퀴즈 하나를 표현하는 틀(설계도)
+
+```python
+class Quiz:
+    def __init__(self, question, choices, answer):
+        self.question = question   # 문제
+        self.choices = choices     # 선택지 4개
+        self.answer = answer       # 정답 번호(1~4)
+    
+    def show(self):
+        # 문제와 선택지를 화면에 출력
+        pass
+    
+    def check(self, user_answer):
+        # 사용자 답이 맞는지 확인
+        pass
+```
+
+---
+
+#### 덩어리 2️⃣: 기본 퀴즈 데이터 만들기
+**뭐냐?** → 게임에 처음부터 들어있는 퀴즈 5개 이상
+
+```python
+# 예시 (주제는 본인이 선택!)
+default_quizzes = [
+    Quiz(
+        "파이썬을 만든 사람은?",
+        ["귀도 반 로섬", "빌 게이츠", "스티브 잡스", "리누스 토발즈"],
+        1  # 정답은 1번
+    ),
+    # ... 4개 더
+]
+```
+
+---
+
+#### 덩어리 3️⃣: QuizGame 클래스 만들기
+**뭐냐?** → 게임 전체를 관리하는 틀
+
+```python
+class QuizGame:
+    def __init__(self):
+        self.quizzes = []      # 퀴즈 목록
+        self.best_score = 0    # 최고 점수
+    
+    def show_menu(self):       # 메뉴 출력
+        pass
+    
+    def play(self):            # 퀴즈 풀기
+        pass
+    
+    def add_quiz(self):        # 퀴즈 추가
+        pass
+    
+    def show_list(self):       # 퀴즈 목록 보기
+        pass
+    
+    def show_score(self):      # 점수 확인
+        pass
+    
+    def save(self):            # state.json에 저장
+        pass
+    
+    def load(self):            # state.json에서 불러오기
+        pass
+```
+
+---
+
+#### 덩어리 4️⃣: 메뉴 기능
+**뭐냐?** → 실행하면 나오는 선택 화면
+
+```
+========================================
+        🎯 나만의 퀴즈 게임 🎯
+========================================
+1. 퀴즈 풀기
+2. 퀴즈 추가
+3. 퀴즈 목록
+4. 점수 확인
+5. 종료
+========================================
+선택:
+```
+
+---
+
+#### 덩어리 5️⃣: 파일 저장/불러오기
+**뭐냐?** → 프로그램 꺼도 데이터가 남도록
+
+```python
+import json
+
+# 저장
+def save(self):
+    data = {
+        "quizzes": [...],   # 퀴즈 목록
+        "best_score": 80    # 최고 점수
+    }
+    with open("state.json", "w", encoding="utf-8") as f:
+        json.dump(data, f)
+
+# 불러오기
+def load(self):
+    try:
+        with open("state.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        # 파일 없으면 기본 데이터 사용
+        pass
+```
+
+---
+
+#### 덩어리 6️⃣: 예외 처리
+**뭐냐?** → 잘못된 입력해도 프로그램이 안 죽도록
+
+```python
+# 예시: 숫자만 받기
+while True:
+    user_input = input("선택: ").strip()
+    if user_input == "":
+        print("⚠️ 입력이 없습니다.")
+        continue
+    try:
+        choice = int(user_input)
+        if 1 <= choice <= 5:
+            break
+        else:
+            print("⚠️ 1-5 사이 숫자를 입력하세요.")
+    except ValueError:
+        print("⚠️ 숫자를 입력하세요.")
+```
+
+---
+
+#### 덩어리 7️⃣: main.py 실행 진입점
+**뭐냐?** → 프로그램 시작점
+
+```python
+if __name__ == "__main__":
+    game = QuizGame()
+    game.load()      # 저장된 데이터 불러오기
+    game.run()       # 게임 시작
+```
+
+---
+
+## 🔨 STEP 4: Git 커밋 계획 (10개 이상)
+
+| 커밋 번호 | 작업 내용 | 커밋 메시지 예시 |
+|-----------|-----------|-----------------|
+| 1 | 초기 파일 생성 | `Init: 프로젝트 초기 설정` |
+| 2 | Quiz 클래스 | `Feat: Quiz 클래스 구현` |
+| 3 | 기본 퀴즈 데이터 | `Feat: 기본 퀴즈 5개 추가` |
+| 4 | 메뉴 기능 | `Feat: 메뉴 출력 및 선택 기능` |
+| 5 | 퀴즈 풀기 | `Feat: 퀴즈 풀기 기능 구현` |
+| 6 | 퀴즈 추가 | `Feat: 퀴즈 추가 기능 구현` |
+| 7 | 퀴즈 목록 | `Feat: 퀴즈 목록 보기 기능` |
+| 8 | 점수 기능 | `Feat: 최고 점수 저장/확인` |
+| 9 | 파일 저장 | `Feat: JSON 파일 저장/불러오기` |
+| 10 | 예외 처리 | `Fix: 잘못된 입력 예외 처리` |
+| 11 | README | `Docs: README 작성 완료` |
+
+### 브랜치 작업 (필수 1회)
+```bash
+git checkout -b feature/quiz-play   # 새 브랜치 생성
+# ... 퀴즈 풀기 기능 코딩 ...
+git add .
+git commit -m "Feat: 퀴즈 풀기 기능 구현"
+git checkout main                   # main으로 돌아오기
+git merge feature/quiz-play         # 병합
+```
+
+---
+
+## 🔨 STEP 5: README.md 작성
+
+### 포함해야 할 내용
+```markdown
+# 나만의 퀴즈 게임
+
+## 프로젝트 개요
+## 퀴즈 주제 선정 이유
+## 실행 방법
+## 기능 목록
+## 파일 구조
+## state.json 설명
+```
+
+---
+
+## 🔨 STEP 6: clone/pull 실습
+
+```bash
+# 다른 폴더에 복제
+git clone [GitHub URL] quiz-game-copy
+
+# 복제된 폴더에서 수정 후 push
+cd quiz-game-copy
+# README 한 줄 추가 후
+git add README.md
+git commit -m "Docs: README 한 줄 추가"
+git push
+
+# 원래 폴더에서 변경사항 가져오기
+cd ../quiz-game
+git pull
+```
+
+---
+
+## 📅 추천 진행 순서 (일정)
+
+```
+1일차: STEP 1 (환경 설치) + STEP 2 (Git 설정)
+2일차: 덩어리 1,2 (Quiz 클래스 + 기본 데이터)
+3일차: 덩어리 3,4 (QuizGame 클래스 + 메뉴)
+4일차: 덩어리 5 (파일 저장/불러오기)
+5일차: 덩어리 6 (예외 처리) + 덩어리 7 (실행)
+6일차: STEP 4 (Git 정리) + STEP 5 (README)
+7일차: STEP 6 (clone/pull) + 최종 점검
+```
+
+---
+
+## ❓ 지금 당장 시작하려면?
+
+**가장 먼저 할 것:**
+1. Python 설치 → 버전 확인
+2. VSCode 설치
+3. GitHub 계정 만들기
+4. Git 설치
+
+설치하다가 막히는 부분 있으면 바로 물어보세요! 하나씩 같이 해결해 드릴게요 💪
