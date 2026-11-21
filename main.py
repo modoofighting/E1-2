@@ -268,5 +268,7 @@ try:
     game.run()
 except KeyboardInterrupt:
     print("\n게임을 중단했습니다.")
+    game.save_if_allowed()
 except EOFError:
     print("\n입력이 종료되어 게임을 마칩니다.")
+    game.save_if_allowed()

@@ -555,17 +555,30 @@ class QuizGame:
 등록된 문제 0개인가? → 예: 안내하고 메뉴로 돌아감
                    → 아니오:
    정답 수(correct_count)를 0으로 준비
-   → for로 self.quizzes에서 문제 하나씩 꺼내기
+   → 문제 목록의 복사본을 섞고 for로 하나씩 꺼내기
    → quiz.show()로 문제·선택지 출력
-   → get_choice(1, 4)로 답 번호 검증
+   → get_answer()로 답 번호 검증
    → quiz.check(사용자 답)으로 정답 판정
    → 맞으면 correct_count를 1 증가
    → 문제를 모두 마치면 점수 계산
    → 최고 점수(best_score) 비교·갱신
-   → save() 호출
+   → save_if_allowed() 호출
 ```
 
 **역할 구분:** `Quiz.check()`가 **문제 하나의 정답 여부**를 확인하고, `QuizGame.play()`가 **여러 문제의 진행과 전체 점수**를 계산한다.
+랜덤 출제에 추가한 코드:
+
+```python
+import random
+
+quiz_order = self.quizzes.copy()
+random.shuffle(quiz_order)
+for quiz in quiz_order:
+    quiz.show()
+```
+
+문제 목록의 복사본을 섞어 출제한다. 등록된 목록의 순서는 유지된다.
+
 <a id="step-python-08"></a>
 ### 4.10 ⑧ 나머지 메뉴 — 추가·목록·최고 점수
 
@@ -605,6 +618,21 @@ class QuizGame:
 **손상 JSON 원칙:** 파일이 손상됐을 경우 기본 문제로 **게임을 계속 실행할 수 있어야 한다.** 다만 기존 파일을 무조건 덮어쓰면 사용자 데이터가 사라질 수 있으므로, 원본을 백업·보존한 후 복구/초기화하거나 안전한 보존이 어려우면 그 실행에서 저장을 제한한다. 이 중 **한 가지 처리 방식을 코드와 테스트에서 일관되게 적용**한다.
 
 실제 시험은 `state.json` 원본이 아니라 **테스트용 복사본/별도 폴더**에서 수행한다. README에 적힌 표는 구현·검증 기준이지 이미 통과했다는 기록이 아니다.
+**실제 코드 — 중단 시 저장 처리**
+
+```python
+try:
+    game.run()
+except KeyboardInterrupt:
+    print("\n게임을 중단했습니다.")
+    game.save_if_allowed()
+except EOFError:
+    print("\n입력이 종료되어 게임을 마칩니다.")
+    game.save_if_allowed()
+```
+
+`save_if_allowed()`는 저장이 허용되는 경우 현재 퀴즈 목록과 최고 점수를 저장한다. 저장 파일이 손상돼 보호 중이면 덮어쓰지 않는다. 입력 도중 작성하던 문제나 완료하지 않은 판의 점수는 아직 확정되지 않아 저장 대상에 포함되지 않는다.
+
 <a id="step-python-11"></a>
 ### 4.13 ⑪ `run()` — 메뉴와 메서드 연결
 
