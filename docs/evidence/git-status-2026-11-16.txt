@@ -1,0 +1,20 @@
+Git verification snapshot: 2026-11-16 (KST)
+Working directory: C:\all in one\e1-2
+
+Commands (in execution order):
+git -c core.quotepath=false status -sb
+git diff --cached --name-only
+
+Captured combined output:
+warning: unable to access 'C:\Users\UserK/.config/git/ignore': Permission denied
+warning: unable to access 'C:\Users\UserK/.config/git/ignore': Permission denied
+## main...origin/main
+ M README.md
+ M "e1-2 컴퓨터에게 명령 내리는 말(파이썬) 처음 배우기.txt"
+ M main.py
+ D state.json
+?? docs/development-comparison.md
+?? docs/screenshots/
+warning: unable to access 'C:\Users\UserK/.config/git/ignore': Permission denied
+
+Last process exit code: 0

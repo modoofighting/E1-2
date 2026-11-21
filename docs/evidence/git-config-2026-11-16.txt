@@ -1,0 +1,25 @@
+Git verification snapshot: 2026-11-16 (KST)
+Working directory: C:\all in one\e1-2
+
+Commands (in execution order):
+git rev-parse --show-toplevel
+git branch --show-current
+git remote -v
+git config --local --get user.name
+git show 641021e:.gitignore
+
+Captured combined output:
+C:/all in one/e1-2
+main
+origin	https://github.com/modoofighting/E1-2.git (fetch)
+origin	https://github.com/modoofighting/E1-2.git (push)
+modoofighting
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+
+.DS_Store
+Thumbs.db
+Last process exit code: 0
