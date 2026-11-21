@@ -1,0 +1,28 @@
+Git verification snapshot: 2026-11-16 (KST)
+Working directory: C:\all in one\e1-2
+
+Commands (in execution order):
+git log --oneline --graph --all --decorate -20
+git rev-list --count HEAD
+git reflog --date=iso -12
+
+Captured combined output:
+* 2fe1da2 (HEAD -> main, origin/main, origin/HEAD) data: save current quiz state
+* 363768a docs: record branch merge and push
+*   f665025 merge: record input validation test
+|\  
+| * 1812455 docs: record input validation test
+|/  
+* fef8673 feat: complete quiz game and document test results
+* 8704b8e docs: explain Github connection
+* 8089530 docs: preserve assignment materials and progress
+* 15e7c36 docs: record first commit
+* 641021e chore: initialize E1-2 project and README
+9
+2fe1da2 HEAD@{2026-11-15 20:58:21 +0900}: pull --ff-only origin main: Fast-forward
+8704b8e HEAD@{2026-11-12 18:36:18 +0900}: commit: docs: explain Github connection
+8089530 HEAD@{2026-11-12 18:21:40 +0900}: commit: docs: preserve assignment materials and progress
+15e7c36 HEAD@{2026-11-12 00:41:19 +0900}: commit: docs: record first commit
+641021e HEAD@{2026-11-12 00:25:58 +0900}: commit (initial): chore: initialize E1-2 project and README
+
+Last process exit code: 0

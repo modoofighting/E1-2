@@ -1,0 +1,34 @@
+Git verification snapshot: 2026-11-16 (KST)
+Working directory: C:\all in one\e1-2
+
+Commands (in execution order):
+git show --format=oneline --stat 641021e
+git show --format=oneline --stat 15e7c36
+git show --format=oneline --stat 8089530
+git show --format=oneline --stat 8704b8e
+
+Captured combined output:
+641021e330cebdee2251e73d70585bb368de89f4 chore: initialize E1-2 project and README
+ .gitignore                   |    8 +
+ README.md                    | 1473 ++++++++++++++++++++++++++++++++++++++++++
+ logs/02-environment-check.md |   78 +++
+ logs/03-git-local-config.md  |   65 ++
+ logs/04-gitignore.md         |   35 +
+ logs/05-git-staging.md       |   38 ++
+ logs/progress.md             |   96 +++
+ 7 files changed, 1793 insertions(+)
+15e7c361d4a82fb8792319ef16828683abd248f4 docs: record first commit
+ README.md | 59 +++++++++++++++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 53 insertions(+), 6 deletions(-)
+80895305d127e27628f83361fd6544a8ebe4c83d docs: preserve assignment materials and progress
+ ...5\264 \352\260\200\354\235\264\353\223\234.txt" |  316 +++++
+ ...ME.md \354\231\204\354\204\261\353\263\270.txt" |  354 ++++++
+ README.md                                          |   43 +
+ docs/practice-guide.md                             | 1320 ++++++++++++++++++++
+ ...5\214 \353\260\260\354\232\260\352\270\260.txt" |  336 +++++
+ 5 files changed, 2369 insertions(+)
+8704b8efdaaf88ffda79086d2d6b6c64d63154e3 docs: explain Github connection
+ README.md | 46 +++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 45 insertions(+), 1 deletion(-)
+
+Last process exit code: 0

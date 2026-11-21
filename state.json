@@ -1,7 +1,7 @@
 {
   "quizzes": [
     {
-      "question": "Ubuntu Bash에서 현재 디렉터리 경로를 확인하는 명령어는?",
+      "question": "현재 디렉터리 경로를 확인하는 명령어는?",
       "choices": [
         "ls",
         "pwd",
@@ -11,27 +11,27 @@
       "answer": 2
     },
     {
-      "question": "Docker 이미지로 새 컨테이너를 생성하고 실행하는 명령어는?",
+      "question": "Docker 이미지로 새 컨테이너를 실행하는 명령어는?",
       "choices": [
-        "docker ps",
-        "docker images",
         "docker run",
-        "docker stop"
-      ],
-      "answer": 3
-    },
-    {
-      "question": "Dockerfile과 빌드 컨텍스트로 새 이미지를 만드는 명령어는?",
-      "choices": [
         "docker build",
-        "docker pull",
-        "docker exec",
-        "docker logs"
+        "docker ps",
+        "docker stop"
       ],
       "answer": 1
     },
     {
-      "question": "Git에서 준비한 변경을 로컬 커밋 이력으로 기록하는 명령어는?",
+      "question": "Dockerfile로 이미지를 만드는 명령어는?",
+      "choices": [
+        "docker run",
+        "docker build",
+        "docker ps",
+        "docker stop"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Git에서 준비한 변경을 로컬 이력으로 기록하는 명령어는?",
       "choices": [
         "git push",
         "git commit",
@@ -41,26 +41,25 @@
       "answer": 2
     },
     {
-      "question": "원격 GitHub 저장소를 새 로컬 폴더로 복제하는 명령어는?",
+      "question": "현재 Git 저장소의 변경 상태를 확인하는 명령어는?",
       "choices": [
-        "git fetch",
-        "git pull",
-        "git checkout",
+        "git status",
+        "git push",
+        "git commit",
         "git clone"
       ],
-      "answer": 4
+      "answer": 1
     },
     {
-      "question": "Python에서 화면에 글자를 출력하는 함수는?",
+      "question": "현재 Git 저장소의 상태를 확인하는 명령어는?",
       "choices": [
-        "input()",
-        "print()",
-        "len()",
-        "type()"
+        "git status",
+        "git push",
+        "git clone",
+        "git init"
       ],
-      "answer": 2
+      "answer": 1
     }
   ],
-  "best_score": 100,
-  "has_played": true
+  "best_score": 100
 }
