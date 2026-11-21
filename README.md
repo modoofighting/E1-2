@@ -970,7 +970,17 @@ python main.py
 git pull --ff-only origin sky
 ```
 
-위 `pull`은 두 PC 간 동기화를 위한 다음 절차다. 이 기록에서 확인된 실제 수행 결과는 복제와 게임 실행까지다.
+다른 PC에서 실제로 `git pull --ff-only origin sky`를 실행한 결과:
+
+```text
+94507a8..60c96e7  sky -> origin/sky
+Updating 94507a8..60c96e7
+Fast-forward
+README.md | 41 +++++++++++++++++++++++++++++++++++++++++
+1 file changed, 41 insertions(+)
+```
+
+`sky`의 새 커밋을 가져와 다른 PC의 README가 갱신된 것을 확인했다. 앞서 `original`을 입력했을 때 원격 저장소를 찾지 못했으며, 원격 이름을 `origin`으로 바로잡아 실행했다.
 
 ### 7.5 증빙 이미지와 테스트 결과 정리
 
