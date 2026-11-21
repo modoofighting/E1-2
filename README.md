@@ -2,8 +2,7 @@
 
 > **미션:** 컴퓨터에게 명령 내리는 말(파이썬) 처음 배우기  
 > **목표:** Python 콘솔 퀴즈 게임을 설계·구현하고, 클래스·JSON 저장·예외 처리·Git 이력을 검증한다.  
-> **제출 저장소:** https://github.com/modoofighting/E1-2  
-> **문서 기준:** **최종 구현 목표·설계와 실행 절차**, 그리고 과제에 필요한 **Python·Git 개념 설명**을 함께 제공한다. 학습용 예시와 기대 결과를 실제 수행·검증 결과로 간주하지 않는다.
+> **제출 저장소:** https://github.com/modoofighting/E1-2  > 
 
 ## 목차
 
@@ -149,7 +148,6 @@ print(quiz_data["answer"])   # 2: 딕셔너리는 키 이름으로 값을 찾음
 
 #### 1.5.2 조건문 `if / elif / else`
 
-
 ```python
 choice = 2                  # 입력 검증이 끝난 정수라고 가정
 if choice == 1:
@@ -170,7 +168,6 @@ else:
 | ------- | ----------------------------------- | ----------------------------------- |
 | `for`   | **목록에서 항목을 하나씩 꺼내거나 정해진 범위를 순회**할 때 | `quizzes`의 문제를 첫 번째부터 마지막까지 출제      |
 | `while` | **조건이 유지되는 동안 계속 반복**할 때            | 메뉴 5번을 선택하기 전까지 메뉴 표시, 올바른 번호까지 재입력 |
-
 ```python
 # for: 목록에 들어 있는 문제 문장 2개를 차례로 출력
 questions = ["Git이란?", "Docker란?"]
@@ -187,7 +184,7 @@ while True:
 
 `for quiz in self.quizzes:`는 **문제를 하나씩 꺼내는 반복**이고, `while True:`는 **사용자의 선택을 계속 기다리는 반복**이다. `continue`를 쓰면 반복을 종료하지 않고 다음 반복으로 넘어가 입력을 다시 받을 수 있다.
 
-#### 1.5.4 P함수·매개변수·반환값
+#### 1.5.4 함수·매개변수·반환값
 
 **함수(function)는 특정 작업을 한 번 정의해 필요할 때 다시 사용하는 코드 묶음**이다. `def`로 함수를 만들고, 함수 이름 뒤의 괄호로 호출한다.
 
@@ -266,8 +263,6 @@ with open("study_example.json", "r", encoding="utf-8") as file:
 print(loaded["quizzes"])                                  # []
 ```
 
-`encoding="utf-8"`은 한글을 같은 방식으로 읽고 쓰기 위한 설정이다. `ensure_ascii=False`는 JSON에 한글이 보기 편하게 기록되도록 하고, `indent=2`는 들여써서 읽기 쉽게 한다. 실제 퀴즈의 `quizzes`에는 `Quiz` 객체가 있으므로, JSON으로 저장하기 전에 질문·선택지·정답을 `dict` 형태로 바꿔야 한다.
-
 #### 1.5.7 예외 처리 — `try/except`가 필요한 이유
 
 **예외(exception)는 코드를 실행하는 중 발생하는 오류 상황**이다. `try` 안에서 작업을 시도하고, 정해진 오류가 생기면 `except`로 안내·재시도·복구 등 적절한 동작을 수행한다.
@@ -316,7 +311,6 @@ GitHub의 새 변경을 기존 폴더에 반영 → git pull
 ### 2.1 선정 이유
 
 개발 환경을 준비하며 배운 명령어를 퀴즈로 다시 확인하면 E1-1 학습과 E1-2의 Python 문법을 연결할 수 있다. 문제를 직접 만들고 출제하면서 **입력 → 조건 판단 → 반복 → 객체·메서드 호출 → 점수 계산 → JSON 저장**이라는 프로그램 흐름을 익히는 것이 목적이다.
-
 <a id="initial-questions"></a>
 ### 2.2 기본 퀴즈 5개 — 구현에 사용할 문제
 
@@ -328,19 +322,10 @@ GitHub의 새 변경을 기존 폴더에 반영 → git pull
 | 4 | Git에서 준비한 변경을 로컬 이력으로 기록하는 명령어는? | `git push` | `git commit` | `git add` | `git status` | **2** |
 | 5 | 현재 Git 저장소의 변경 상태를 확인하는 명령어는? | `git status` | `git push` | `git commit` | `git clone` | **1** |
 
-
 ---
-
 ## 3. 실행 방법
 
 ### 3.1 개발·실행 환경
-
-- **Python:** 3.10 이상(필수)
-- **터미널:** Windows PowerShell 기준으로 안내
-- **편집기:** VS Code 등 Python 코드를 편집할 수 있는 도구
-- **패키지 설치:** 외부 라이브러리 불필요. `json`, `pathlib` 등 표준 라이브러리만 사용
-
-먼저 PowerShell 또는 VS Code 터미널에서 버전을 확인한다.
 
 ```powershell
 # Python 버전 확인 — 3.10 이상이어야 함
@@ -363,7 +348,6 @@ Get-Location
 python main.py
 ```
 
-
 ### 3.3 GitHub 저장소를 새 컴퓨터에서 처음 가져올 때
 
 ```powershell
@@ -377,7 +361,6 @@ git clone https://github.com/modoofighting/E1-2.git e1-2-downloaded
 Set-Location "C:\all in one\e1-2-downloaded"
 python main.py
 ```
-
 
 ### 3.4 목표 메뉴 화면
 
@@ -422,7 +405,6 @@ python -m json.tool state.json
 | **5** | 종료 | 저장을 시도하고 메뉴 반복 종료 | 종료 안내, 데이터 보존, 오류 없는 종료 |
 
 **점수 규칙(프로젝트 설계):** 정답 1개당 `correct_count`를 1 증가시키고, `score = round(correct_count / total * 100)`으로 백분율을 계산한다. `total`이 0이면 계산하지 않는다. 한 판을 **끝까지 완료한 경우에만** 최고 점수를 비교·갱신한다.
-
 <a id="code-order"></a>
 ### 4.2 실제 코드 작성 순서 
 
@@ -455,6 +437,7 @@ STATE_PATH = Path(__file__).with_name("state.json")
 ```
 
 `STATE_PATH`는 `main.py`와 같은 폴더의 `state.json` **위치만 지정**한다. 
+<a id="step-python-02"></a>
 <a id="quiz-class-writing"></a>
 ### 4.4 ② `Quiz` 클래스 — 문제 한 개가 기억할 것
 
@@ -467,7 +450,6 @@ class Quiz:
 ```
 
 `class`는 설계도를 정의하고, `__init__()`은 `Quiz(...)` 객체를 만들 때 속성을 설정한다. **클래스 이름과 파일 이름은 같은 것이 아니다.**
-
 <a id="step-python-03"></a>
 ### 4.5 ③ `Quiz` 메서드 — 무엇을 할 수 있나?
 
@@ -487,7 +469,6 @@ class Quiz:
 
 **Quiz 클래스 필수 확인:** 한 문제에는 `question`(질문), `choices`(선택지 **4개**), `answer`(정답 번호 **1~4**)가 들어간다. `show()`는 질문·선택지 네 개를 출력하고, `check()`는 선택한 답이 맞는지 확인한다. 각 문제는 `Quiz(...)`로 생성한다. 완성 후에는 선택지가 4개가 아닌 데이터나 정답 번호가 1~4 밖인 데이터를 게임에 받아들이지 않도록 검증한다.
 
-
 ```powershell
 # 실제 기능을 작성·확인한 후 실행
 python -m py_compile main.py
@@ -496,11 +477,10 @@ git add main.py
 git diff --cached --name-only
 git commit -m "feat: implement Quiz class and answer checking"
 ```
-
 <a id="step-python-04"></a>
 ### 4.6 ④ 기본 문제를 객체로 만들기
 
-`Quiz` 클래스 **바깥**에 기본 문제를 준비하는 함수를 둔다. 아래 코드는 [2.3절](#initial-questions)의 **기본 문제 5개를 실제 객체로 만드는 완전한 예시**다.
+`Quiz` 클래스 **바깥**에 기본 문제를 준비하는 함수를 둔다. 아래 코드는 [2.2절](#initial-questions)의 **기본 문제 5개를 실제 객체로 만드는 완전한 예시**다.
 
 ```python
 def make_default_quizzes():
@@ -519,7 +499,6 @@ def make_default_quizzes():
 ```
 
 `Quiz(...)`는 **실제 문제 객체를 만드는 코드**다. 이 함수가 돌려주는 `list`에는 서로 다른 `Quiz` 객체가 5개 들어간다. `Quiz` 클래스가 먼저 정의되어 있어야 이 함수를 정상적으로 호출할 수 있다.
-
 <a id="step-python-05"></a>
 ### 4.7 ⑤ `QuizGame` 클래스 — 게임 전체의 담당자
 
@@ -533,7 +512,6 @@ class QuizGame:
 ```
 
 `self.quizzes`는 문제 객체 목록, `self.best_score`는 최고 기록이다. `None`은 아직 점수가 없다는 뜻이다. 저장 파일이 있으면 이후 `load()`를 통해 값을 복원한다.
-
 <a id="step-python-06"></a>
 ### 4.8 ⑥ 메뉴 출력과 공통 입력 검증
 
@@ -570,8 +548,7 @@ class QuizGame:
             return number
 ```
 
-`while True`는 올바른 번호를 받을 때까지 반복하고, `continue`는 같은 질문으로 되돌아간다. `return`은 **검증한 정수**를 `play()`·`add_quiz()`·`run()`에 전달한다. 이 메서드에서 발생하는 `Ctrl+C`·`EOFError`는 게임 종료를 담당하는 상위 코드에서 잡아 **안내 → 가능한 저장 → 안전 종료** 순서로 처리한다. 
-<a id="step-python-07"></a>
+`while True`는 올바른 번호를 받을 때까지 반복하고, `continue`는 같은 질문으로 되돌아간다. `return`은 **검증한 정수**를 `play()`·`add_quiz()`·`run()`에 전달한다. 이 메서드에서 발생하는 `Ctrl+C`·`EOFError`는 게임 종료를 담당하는 상위 코드에서 잡아 **안내 → 가능한 저장 → 안전 종료** 순서로 처리한다. <a id="step-python-07"></a>
 ### 4.9 ⑦ `play()` — 여러 문제를 차례로 풀기
 
 ```text
@@ -589,7 +566,6 @@ class QuizGame:
 ```
 
 **역할 구분:** `Quiz.check()`가 **문제 하나의 정답 여부**를 확인하고, `QuizGame.play()`가 **여러 문제의 진행과 전체 점수**를 계산한다.
-
 <a id="step-python-08"></a>
 ### 4.10 ⑧ 나머지 메뉴 — 추가·목록·최고 점수
 
@@ -600,7 +576,6 @@ class QuizGame:
 | `show_best_score()` | `best_score is None`이면 아직 플레이 기록이 없다고 안내. 아니면 최고 점수 표시 |
 
 `append()`는 리스트 끝에 새 항목을 추가하는 메서드다. 문제 문장과 각 선택지도 빈 입력을 허용하지 않는다.
-
 <a id="step-python-09"></a>
 ### 4.11 ⑨ `load()`·`save()` — 게임 데이터 유지
 
@@ -608,13 +583,10 @@ class QuizGame:
 
 - **읽기:** `json.load()` → 데이터 형태 검사 → 각 문제를 `Quiz(...)` 객체로 복원
 - **쓰기:** `Quiz` 객체의 속성을 딕셔너리로 바꾸기 → `json.dump(..., ensure_ascii=False, indent=2)`
-- **경로:** `STATE_PATH = Path(__file__).with_name("state.json")`
-
-<a id="step-python-10"></a>
-<a id="exception-handling-step"></a>
+- **경로:** `STATE_PATH = Path(__file__).with_name("state.json")`<a id="step-python-10"></a><a id="exception-handling-step"></a>
 ### 4.12 ⑩ 예외 처리 — 오류가 나도 안전하게
 
-**과제 최소 기준:** 잘못된 값을 입력했을 때는 오류 문장만 표시하고 끝내면 안 된다. 사용자가 다시 입력해 계속 진행할 수 있어야 한다. 입력 과정 전체에서 `KeyboardInterrupt`와 `EOFError`를 처리하고, 데이터 파일의 문제 때문에 게임 시작 자체가 막히지 않도록 한다.
+ `KeyboardInterrupt`와 `EOFError`를 처리하고, 데이터 파일의 문제 때문에 게임 시작 자체가 막히지 않도록 한다.
 
 | 상황 | 구현 목표 | 검증할 결과 |
 |---|---|---|
@@ -633,7 +605,6 @@ class QuizGame:
 **손상 JSON 원칙:** 파일이 손상됐을 경우 기본 문제로 **게임을 계속 실행할 수 있어야 한다.** 다만 기존 파일을 무조건 덮어쓰면 사용자 데이터가 사라질 수 있으므로, 원본을 백업·보존한 후 복구/초기화하거나 안전한 보존이 어려우면 그 실행에서 저장을 제한한다. 이 중 **한 가지 처리 방식을 코드와 테스트에서 일관되게 적용**한다.
 
 실제 시험은 `state.json` 원본이 아니라 **테스트용 복사본/별도 폴더**에서 수행한다. README에 적힌 표는 구현·검증 기준이지 이미 통과했다는 기록이 아니다.
-
 <a id="step-python-11"></a>
 ### 4.13 ⑪ `run()` — 메뉴와 메서드 연결
 
@@ -652,7 +623,6 @@ flowchart TD
     E --> A
     F --> A
 ```
-
 <a id="step-python-12"></a>
 ### 4.14 ⑫ 프로그램의 시작점
 
@@ -673,7 +643,6 @@ if __name__ == "__main__":
 ```
 
 `if __name__ == "__main__":`은 이 Python 파일을 직접 실행했을 때 시작하도록 하는 조건이다. 이 예시는 **입력 중단 시의 제어 흐름**을 보여준다. 실제 `load()`·`save()`에서는 손상 파일을 덮어쓰지 않는 보호 규칙과 JSON 읽기·쓰기 예외 처리를 반드시 구현해야 한다. `save()` 자체가 예외를 처리하는 구조라면 시작점에서는 이를 중복 처리하지 않도록 조정한다. 코드 배치는 `import → Quiz 정의 → 기본 문제 함수 → QuizGame 정의 → 시작점`, 실행 흐름은 `game 생성 → load() → run() → 메뉴 기능 호출`이다.
-
 <a id="python-names-reference"></a>
 ### 4.15 과제에 나오는 주요 이름 빠르게 찾기
 
@@ -766,7 +735,6 @@ main.py
 ---
 
 ## 6. 데이터 파일 설명: `state.json`
-
 <a id="state-file-role"></a>
 ### 6.1 경로와 역할
 
@@ -805,7 +773,6 @@ main.py
 | `best_score` | 정수 또는 `null` | `null`이면 아직 한 판을 완료하지 않음, 완료 후 **0~100점** |
 
 **이번 설계에서는** 첫 플레이 여부를 `best_score: null`로 구분한다. 따라서 별도의 플레이 여부 필드를 둘 필요가 없다. `null`은 Python에서 `None`으로 읽는다. 점수가 0점이어도 **실제로 한 판을 완료했다면** `best_score: 0`으로 저장한다.
-
 <a id="state-save-load"></a>
 ### 6.3 저장과 불러오기 흐름
 
@@ -839,12 +806,10 @@ flowchart TD
 
 - `main.py`는 **어떻게 동작하고 저장할지**를 작성한 Python 코드다.
 - `state.json`은 게임이 저장한 **문제와 최고 점수의 실제 값**이다.
-- 프로그램을 종료해도 남아야 할 값은 Python 변수만으로는 부족하므로 **JSON 파일에 기록**한다.
+- 프로그램을 종료해도 남아야 할 값은 Python 변수만으로는 부족하므로 **JSON 파일에 기록**
 
 ---
-
 ## 7. Git·GitHub 작업 및 README 최종 푸시
-
 <a id="git-commands"></a>
 ### 7.1 과제 필수 Git 명령어
 
@@ -888,7 +853,6 @@ git push origin main
 ```
 
 `git add`는 **준비**, `git commit`은 **로컬 이력 기록**, `git push`는 **GitHub 업로드**다. 세 단계는 서로 다른 작업이다.
-
 <a id="git-branch-merge"></a>
 ### 7.3 기능 브랜치 생성·병합 (`checkout`·`merge`)
 
@@ -937,10 +901,9 @@ git push origin main
 | 12 | 테스트·README·실행 증빙 정리 |
 
 이는 **계획 예시**다. 커밋 수를 채우려고 내용 없는 커밋을 만들지 않고, 실제 변경과 메시지가 일치하도록 기록한다.
-
 <a id="clone-pull"></a>
 <a id="git-clone-pull"></a>
-### 7.4 `clone`과 `pull` 실습 — 과제 필수
+### 7.4 `clone`과 `pull` 실습
 
 **게임 제작 완료 후**, 원본 프로젝트와 **다른 폴더**에서 다음 과정을 수행한다.
 
@@ -967,8 +930,6 @@ git pull --ff-only origin main
 # 원본에도 방금 복제본의 커밋·README 변경이 보이는지 확인
 git log -5 --oneline
 ```
-
-**검증 기준:** 복제본에서 만든 커밋이 원본 `git log`에도 나타나고 README에 수정한 한 줄이 반영된다. 원본에 아직 저장하지 않은 변경이 있다면, 이를 먼저 안전하게 정리한 후 `pull`을 수행한다.
 
 ### 7.5 증빙 이미지와 테스트 결과 정리
 
@@ -1072,7 +1033,7 @@ git rev-list --count HEAD
 
 ![저장과 종료 화면](docs/screenshots/19-state-first-save.png)
 
-### 상세 작업 기록
+### 8.1 상세 작업 기록
 
 - [단계별 작업 기록 목록](docs/history/index.md)
 - [코드와 실행 결과](docs/history/code-output.md)
