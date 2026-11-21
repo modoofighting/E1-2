@@ -4,8 +4,7 @@
 
 #### 3-1. Python 실행 오류 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 작업 폴더: C:\all in one\e1-2
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 작업 폴더: C:\all in one\e1-2
 # Python 버전 확인
 <span style="color: #0969da;">python --version</span></code></pre>
 
@@ -18,8 +17,7 @@ error: uv trampoline failed to spawn Python child process
 
 #### 3-2. Python 실행 경로 조정 및 버전 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 작업 폴더: C:\all in one\e1-2
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 작업 폴더: C:\all in one\e1-2
 # 앞서 임시로 등록한 python 함수 제거
 <span style="color: #0969da;">Remove-Item Function:\python -ErrorAction SilentlyContinue</span>
 # 정상 설치된 Python 3.11 경로를 현재 창의 PATH 맨 앞에 추가
@@ -37,8 +35,7 @@ Python 3.11.9
 
 #### 4-1. 현재 작업 위치 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 현재 작업 폴더 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 현재 작업 폴더 확인
 <span style="color: #0969da;">Get-Location</span></code></pre>
 
 ```text
@@ -51,8 +48,7 @@ C:\all in one\e1-2
 
 #### 4-2. 초기화 전 Git 상태 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 작업 폴더: C:\all in one\e1-2
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 작업 폴더: C:\all in one\e1-2
 # Git 저장소인지 확인
 <span style="color: #0969da;"> git status -sb</span></code></pre>
 
@@ -64,8 +60,7 @@ fatal: not a git repository (or any of the parent directories): .git
 
 #### 4-3. main 브랜치로 Git 저장소 초기화
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 작업 폴더: C:\all in one\e1-2
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 작업 폴더: C:\all in one\e1-2
 # 현재 폴더에 Git 저장소를 만들고 첫 브랜치를 main으로 지정
 <span style="color: #0969da;">git init -b main</span></code></pre>
 

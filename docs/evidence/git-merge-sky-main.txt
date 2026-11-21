@@ -1,0 +1,90 @@
+PS C:\all in one\e1-2> git merge --no-ff sky -m "merge: integrate quiz game work"
+Merge made by the 'ort' strategy.
+ ...ME.md \354\231\204\354\204\261\353\263\270.txt" |  354 ---
+ README.md                                          | 2284 +++++-----------
+ docs/development-comparison.md                     |   65 +
+ docs/evidence/git-commits-2026-11-16.txt           |   34 +
+ docs/evidence/git-config-2026-11-16.txt            |   25 +
+ docs/evidence/git-history-2026-11-16.txt           |   28 +
+ docs/evidence/git-status-2026-11-16.txt            |   20 +
+ docs/git-guide.md                                  |  240 ++
+ docs/history/code-output.md                        |  590 ++++
+ docs/history/index.md                              |  230 ++
+ docs/history/previous-readme.md                    | 2862 ++++++++++++++++++++
+ docs/history/python-work-notes.md                  |   57 +
+ docs/screenshots/01-menu-input-wait.png            |  Bin 0 -> 70644 bytes
+ docs/screenshots/02-menu-input-result.png          |  Bin 0 -> 24404 bytes
+ docs/screenshots/03-menu-if-result.png             |  Bin 0 -> 18719 bytes
+ docs/screenshots/04-menu-elif-result.png           |  Bin 0 -> 93674 bytes
+ docs/screenshots/05-menu-three-result.png          |  Bin 0 -> 104589 bytes
+ docs/screenshots/06-menu-four-result.png           |  Bin 0 -> 108510 bytes
+ docs/screenshots/07-menu-five-result.png           |  Bin 0 -> 105320 bytes
+ docs/screenshots/08-menu-invalid-nine.png          |  Bin 0 -> 118380 bytes
+ docs/screenshots/09-menu-repeat-nine.png           |  Bin 0 -> 120724 bytes
+ docs/screenshots/10-menu-one-repeat.png            |  Bin 0 -> 11088 bytes
+ docs/screenshots/11-quiz-object-question.png       |  Bin 0 -> 114201 bytes
+ docs/screenshots/12-quiz-show-choices.png          |  Bin 0 -> 129581 bytes
+ docs/screenshots/13-quiz-answer-input.png          |  Bin 0 -> 86814 bytes
+ docs/screenshots/14-answer-invalid-nine.png        |  Bin 0 -> 37103 bytes
+ docs/screenshots/15-quiz-add-question.png          |  Bin 0 -> 39952 bytes
+ docs/screenshots/16-quiz-add-choices.png           |  Bin 0 -> 44596 bytes
+ docs/screenshots/17-quiz-add-answer.png            |  Bin 0 -> 55605 bytes
+ docs/screenshots/18-quiz-add-answer-validation.png |  Bin 0 -> 59913 bytes
+ docs/screenshots/19-state-first-save.png           |  Bin 0 -> 30577 bytes
+ ...5\214 \353\260\260\354\232\260\352\270\260.txt" |   23 +-
+ main.py                                            |  399 +--
+ state.json                                         |   47 +-
+ 34 files changed, 5105 insertions(+), 2153 deletions(-)
+ delete mode 100644 "# \360\237\223\204 README.md \354\231\204\354\204\261\353\263\270.txt"
+ create mode 100644 docs/development-comparison.md
+ create mode 100644 docs/evidence/git-commits-2026-11-16.txt
+ create mode 100644 docs/evidence/git-config-2026-11-16.txt
+ create mode 100644 docs/evidence/git-history-2026-11-16.txt
+ create mode 100644 docs/evidence/git-status-2026-11-16.txt
+ create mode 100644 docs/git-guide.md
+ create mode 100644 docs/history/code-output.md
+ create mode 100644 docs/history/index.md
+ create mode 100644 docs/history/previous-readme.md
+ create mode 100644 docs/history/python-work-notes.md
+ create mode 100644 docs/screenshots/01-menu-input-wait.png
+ create mode 100644 docs/screenshots/02-menu-input-result.png
+ create mode 100644 docs/screenshots/03-menu-if-result.png
+ create mode 100644 docs/screenshots/04-menu-elif-result.png
+ create mode 100644 docs/screenshots/05-menu-three-result.png
+ create mode 100644 docs/screenshots/06-menu-four-result.png
+ create mode 100644 docs/screenshots/07-menu-five-result.png
+ create mode 100644 docs/screenshots/08-menu-invalid-nine.png
+ create mode 100644 docs/screenshots/09-menu-repeat-nine.png
+ create mode 100644 docs/screenshots/10-menu-one-repeat.png
+ create mode 100644 docs/screenshots/11-quiz-object-question.png
+ create mode 100644 docs/screenshots/12-quiz-show-choices.png
+ create mode 100644 docs/screenshots/13-quiz-answer-input.png
+ create mode 100644 docs/screenshots/14-answer-invalid-nine.png
+ create mode 100644 docs/screenshots/15-quiz-add-question.png
+ create mode 100644 docs/screenshots/16-quiz-add-choices.png
+ create mode 100644 docs/screenshots/17-quiz-add-answer.png
+ create mode 100644 docs/screenshots/18-quiz-add-answer-validation.png
+ create mode 100644 docs/screenshots/19-state-first-save.png
+PS C:\all in one\e1-2> git log --oneline --graph --all --decorate
+*   871c428 (HEAD -> main) merge: integrate quiz game work
+|\  
+| * 3ddeed7 (origin/sky, sky) docs: organize Git guide and links
+| * 6df584f fix: save quiz state when input ends
+| * 5be3f79 docs: streamline pull record
+| * 9894065 docs: record pull on another PC
+| * 60c96e7 docs: record clone and execution on another PC
+| * 94507a8 docs: update README links and numbering
+| * 5518a99 feat: complete quiz game and document work
+|/  
+* 2fe1da2 (origin/main, origin/HEAD) data: save current quiz state
+* 363768a docs: record branch merge and push
+*   f665025 merge: record input validation test
+|\  
+| * 1812455 docs: record input validation test
+|/  
+* fef8673 feat: complete quiz game and document test results
+* 8704b8e docs: explain Github connection
+* 8089530 docs: preserve assignment materials and progress
+* 15e7c36 docs: record first commit
+* 641021e chore: initialize E1-2 project and README
+(END)

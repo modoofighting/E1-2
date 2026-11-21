@@ -24,8 +24,7 @@ Thumbs.db
 
 `__pycache__/`와 `*.py[cod]`는 Python 캐시 및 관련 확장자를, `.venv/`와 `venv/`는 가상환경 폴더를 제외하는 규칙입니다. `.DS_Store`와 `Thumbs.db`는 운영체제 임시 파일입니다. `*.py[cod]`에는 `.pyd`도 포함되며, 직접 배포할 `.pyd`가 필요한 경우 규칙을 검토해야 합니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# 현재 브랜치와 추적되지 않은 파일 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 현재 브랜치와 추적되지 않은 파일 확인
 <span style="color: #0969da;">git status -sb</span></code></pre>
 
 ```text

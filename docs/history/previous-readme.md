@@ -24,8 +24,7 @@
 <a id="record-004"></a>
 ### 새 Python 파일 준비 — 실제 실행 기록
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# main.py 파일 준비
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># main.py 파일 준비
 <span style="color: #0969da;">New-Item main.py</span></code></pre>
 
 **제공된 출력:**
@@ -40,8 +39,7 @@ Mode                 LastWriteTime    Length
 
 `New-Item`은 새 항목을 만드는 PowerShell 명령입니다. 제공된 출력에서는 크기가 `0`으로 표시됐고, 이후 Codex가 현재 `main.py`도 0바이트인 것을 확인했습니다. 이는 당시 파일이 비어 있던 것을 나타내며, 이후 작성한 메뉴 코드는 아래에 따로 기록합니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# VS Code에서 main.py 열기
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># VS Code에서 main.py 열기
 <span style="color: #0969da;">code main.py</span></code></pre>
 
 명령을 입력했고 터미널에 별도 출력은 표시되지 않았습니다. 새 게임의 실행 결과는 아직 확인하지 않았습니다.
@@ -72,8 +70,7 @@ print("=" * 40)
 <a id="record-006"></a>
 ### 메뉴 실행 화면
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 메뉴가 표시되는지 실행
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 메뉴가 표시되는지 실행
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 **실제 화면:** 제공된 스크린샷에는 퀴즈 메뉴 다섯 항목과 `메뉴 번호를 선택하세요:` 입력 대기 화면이 표시됩니다. `print()`로 메뉴를 출력한 뒤 `input()`에서 입력한 사람의 번호 입력을 기다리는 상태입니다.
@@ -85,8 +82,7 @@ print("=" * 40)
 <a id="record-007"></a>
 ### 메뉴 번호 입력 결과
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 메뉴를 출력하고 번호 입력 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 메뉴를 출력하고 번호 입력 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 **실제 출력 중 입력 결과:**
@@ -112,8 +108,7 @@ else:
     print("다른 번호를 선택했습니다")
 ```
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 메뉴 번호에 따른 조건 분기 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 메뉴 번호에 따른 조건 분기 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 **실제 출력 중 입력과 선택 결과:**
@@ -141,8 +136,7 @@ else:
     print("다른 번호를 선택했습니다")
 ```
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 메뉴 번호 2 선택 결과 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 메뉴 번호 2 선택 결과 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 
@@ -161,8 +155,7 @@ else:
 
 `elif choice == "3":`을 추가해 퀴즈 목록 선택을 구분했습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 메뉴 번호 3 선택 결과 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 메뉴 번호 3 선택 결과 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 
@@ -181,8 +174,7 @@ else:
 
 `elif choice == "4":`을 추가해 최고 점수 확인 선택을 구분했습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 메뉴 번호 4 선택 결과 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 메뉴 번호 4 선택 결과 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 
@@ -201,8 +193,7 @@ else:
 
 `elif choice == "5":`을 추가해 종료 선택을 구분했습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 메뉴 번호 5 선택 결과 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 메뉴 번호 5 선택 결과 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 
@@ -226,8 +217,7 @@ else:
     print("1부터 5까지의 번호를 입력하세요")
 ```
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 메뉴 범위 밖 숫자 9를 입력해 안내 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 메뉴 범위 밖 숫자 9를 입력해 안내 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 
@@ -246,8 +236,7 @@ else:
 
 `while True:` 안에 메뉴 출력·입력·조건문을 넣고, `5`를 선택하면 `break`를 실행하도록 작성했습니다. `while True`는 내부 코드를 반복하고, `break`는 해당 반복문을 빠져나갑니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 범위 밖 번호를 입력한 뒤 메뉴가 다시 표시되는지 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 범위 밖 번호를 입력한 뒤 메뉴가 다시 표시되는지 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 
@@ -339,8 +328,7 @@ while True:
 
 `Quiz` 클래스의 `__init__`에 `question`, `choices`, `answer` 속성을 작성하고 `quiz1 = Quiz(...)`로 퀴즈 객체를 만들었습니다. 이어 `print(quiz1.question)`으로 객체에 저장한 질문을 확인했습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 객체의 질문과 기존 메뉴 출력 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 객체의 질문과 기존 메뉴 출력 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 **실행 화면의 실제 출력 중 문제 문장:**
@@ -358,8 +346,7 @@ while True:
 
 `Quiz` 클래스에 `show()` 메서드를 추가하고 `quiz1.show()`로 호출하는 연습을 했습니다. 메서드는 질문을 출력한 뒤 `enumerate(..., start=1)`로 선택지 번호를 붙입니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# Quiz.show()의 출력과 메뉴 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># Quiz.show()의 출력과 메뉴 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 **실행 화면의 실제 출력 중 일부:**
@@ -382,8 +369,7 @@ while True:
 
 `print(quiz1.question)`을 정리한 뒤 실행한 결과를 공유했습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 질문과 선택지 출력 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 질문과 선택지 출력 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 **실제 출력:**
@@ -420,8 +406,7 @@ def check(self, user_answer):
 
 `user_answer`는 비교할 번호이고 `self.answer`는 퀴즈에 저장된 정답입니다. `==`는 두 값이 같은지 비교하며 `return`은 그 결과를 돌려줍니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 문제 출력과 임시 정답 판정 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 문제 출력과 임시 정답 판정 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 **제공된 실제 출력 중 문제와 판정 결과:**
@@ -453,8 +438,7 @@ quiz2 = Quiz(
 quiz2.show()
 ```
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 두 문제와 선택지 출력 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 두 문제와 선택지 출력 확인
 <span style="color: #0969da;">python main.py</span></code></pre>
 
 **제공된 실제 출력 중 두 번째 문제:**
@@ -506,8 +490,7 @@ Dockerfile로 이미지를 만드는 명령어는?
 
 `origin`을 `https://github.com/modoofighting/E1-2.git`으로 연결한 후 PowerShell에서 다음 명령을 실행했습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 로컬 main을 GitHub에 올리고 추적 관계 설정
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 로컬 main을 GitHub에 올리고 추적 관계 설정
 <span style="color: #0969da;">git push -u origin main</span></code></pre>
 
 **실제 출력 중 결과 부분:**
@@ -524,8 +507,7 @@ branch 'main' set up to track 'origin/main'.
 
 공용 컴퓨터 작업 후 노트북에서 원격 정보를 가져왔습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# GitHub의 최신 브랜치 정보 가져오기
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># GitHub의 최신 브랜치 정보 가져오기
 <span style="color: #0969da;">git fetch origin</span>
 # 로컬과 원격 브랜치 상태 확인
 <span style="color: #0969da;">git status -sb</span></code></pre>
@@ -542,8 +524,7 @@ branch 'main' set up to track 'origin/main'.
 <a id="record-027"></a>
 #### 노트북에 변경 반영
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 이력을 단순히 앞으로 이동할 수 있을 때만 원격 변경 반영
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 이력을 단순히 앞으로 이동할 수 있을 때만 원격 변경 반영
 <span style="color: #0969da;">git pull --ff-only origin main</span></code></pre>
 
 **실제 출력 중 핵심 부분:**
@@ -955,8 +936,7 @@ Docker 이미지로 새 컨테이너를 실행하는 명령어는?
 
 다음은 **2026-11-16 Codex가 PowerShell에서 확인한 실제 상태**입니다. 작업을 계속하면 내용은 달라질 수 있습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 로컬 브랜치와 작업 파일 상태 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 로컬 브랜치와 작업 파일 상태 확인
 <span style="color: #0969da;">git status -sb</span></code></pre>
 
 ```text
@@ -1032,8 +1012,7 @@ Python으로 터미널에서 동작하는 퀴즈 게임을 만들고, 기능별 
 ### 3. Python 실행 환경 준비
 
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 작업 폴더: C:\all in one\e1-2
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 작업 폴더: C:\all in one\e1-2
 # 앞서 임시로 등록한 python 함수 제거
 <span style="color: #0969da;">Remove-Item Function:\python -ErrorAction SilentlyContinue</span>
 # 정상 설치된 Python 3.11 경로를 현재 창의 PATH 맨 앞에 추가
@@ -1051,8 +1030,7 @@ Python 3.11.9
 <a id="record-049"></a>
 #### 4-1. 현재 작업 위치 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 현재 작업 폴더 확인, powershell 작업경로 보여줌
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 현재 작업 폴더 확인, powershell 작업경로 보여줌
 <span style="color: #0969da;">Get-Location</span></code></pre>
 
 ```text
@@ -1064,8 +1042,7 @@ C:\all in one\e1-2
 <a id="record-050"></a>
 #### 4-2. 초기화 전 Git 상태 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 작업 폴더: C:\all in one\e1-2
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 작업 폴더: C:\all in one\e1-2
 # Git 저장소인지 확인
 <span style="color: #0969da;"> git status -sb</span></code></pre>
 
@@ -1078,8 +1055,7 @@ fatal: not a git repository (or any of the parent directories): .git
 <a id="record-051"></a>
 #### 4-3. main 브랜치로 Git 저장소 초기화
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# 작업 폴더: C:\all in one\e1-2
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 작업 폴더: C:\all in one\e1-2
 # 현재 폴더에 Git 저장소를 만들고 첫 브랜치를 main으로 지정
 <span style="color: #0969da;">git init -b main</span></code></pre>
 
@@ -1303,8 +1279,7 @@ E1-1에서 익힌 WSL/Ubuntu, Docker, Git의 명령어를 퀴즈 문제로 활�
 <a id="record-071"></a>
 #### 운영체제 정보 확인 — 실제 실행 기록
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# Windows 제품명, 버전, 운영체제 빌드 번호 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># Windows 제품명, 버전, 운영체제 빌드 번호 확인
 <span style="color: #0969da;">Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion, OsBuildNumber</span></code></pre>
 
 ```text
@@ -1319,8 +1294,7 @@ Windows 10 Pro     2009           26100
 <a id="record-072"></a>
 #### PowerShell 버전 확인 — 실제 실행 기록
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell에서 실행
-# PowerShell 버전 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># PowerShell 버전 확인
 <span style="color: #0969da;">$PSVersionTable.PSVersion</span></code></pre>
 
 ```text
@@ -1483,8 +1457,7 @@ Git 작성자 정보는 적용 범위에 따라 다음처럼 구분합니다.
 | `--global` | 현재 Windows 입력한 사람의 Git 저장소에서 사용하는 기본값 | 해당 저장소의 로컬 값이 없을 때 사용 |
 
 새 폴더마다 설정할 필요는 없음. 별도 저장소를 만들었을 때 로컬 값이 없으면 전역 값을 사용할 수 있다. 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code># PowerShell에서 실행: 전역 작성자 이름과 이메일 확인
-<span style="color: #0969da;">git config --global --get user.name</span>
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code><span style="color: #0969da;">git config --global --get user.name</span>
 <span style="color: #0969da;">git config --global --get user.email</span></code></pre>
 
 전역 기본값의 경우
@@ -1530,8 +1503,7 @@ Thumbs.db
 
 ##### 1. README와 .gitignore를 커밋 대상으로 준비 — 실행한 명령
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# README와 .gitignore를 다음 커밋 대상으로 선택
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># README와 .gitignore를 다음 커밋 대상으로 선택
 <span style="color: #0969da;">git add README.md .gitignore</span></code></pre>
 
 **실제 출력:**
@@ -1546,16 +1518,14 @@ warning: in the working copy of 'README.md', LF will be replaced by CRLF the nex
 
 README가 참조하는 작업 로그도 같은 커밋에 담기 위해 **다음 명령을 별도로 입력**했습니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# logs 폴더의 파일도 다음 커밋 대상으로 선택
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># logs 폴더의 파일도 다음 커밋 대상으로 선택
 <span style="color: #0969da;">git add logs/</span></code></pre>
 
 **실제 출력 요약:** `02-environment-check.md`, `03-git-local-config.md`, `04-gitignore.md`, `05-git-staging.md`, `progress.md` 각각에 대해 LF가 나중에 CRLF로 바뀔 수 있다는 경고가 표시
 
 ##### 2-1. 준비된 파일 이름 확인 
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# 커밋을 위해 준비된 파일 이름만 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 커밋을 위해 준비된 파일 이름만 확인
 <span style="color: #0969da;">git diff --cached --name-only</span></code></pre>
 
 ```text
@@ -1571,7 +1541,6 @@ logs/progress.md
 출력에 `.gitignore`와 `README.md`가 있으므로 앞서 실행한 `git add README.md .gitignore`로 두 파일이 준비됐음을 확인. 로그 파일들도 이후 `git add logs/`로 준비. `--cached`는 스테이징 영역을, `--name-only`는 파일 이름만 표시한다는 뜻. 이 목록은 **명령을 실행한 당시의 상태**.
 
 ```powershell
-# PowerShell에서 실행 예정: C:\all in one\e1-2
 # 수정된 README와 작업 로그를 다시 커밋 대상으로 준비
 git add README.md logs/
 # 대상 파일 목록과 변경 내용 확인
@@ -1645,8 +1614,7 @@ git commit -m "chore: initialize E1-2 project and README"
 
 ##### 1. 수정된 README를 스테이징
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행: C:\all in one\e1-2
-# 수정된 README 내용을 다음 커밋 대상으로 준비
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 수정된 README 내용을 다음 커밋 대상으로 준비
 <span style="color: #0969da;">git add README.md</span></code></pre>
 
 ```text
@@ -1657,8 +1625,7 @@ warning: in the working copy of 'README.md', LF will be replaced by CRLF the nex
 
 ##### 2. 스테이징된 파일 이름 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# 다음 커밋에 준비된 파일 이름만 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 다음 커밋에 준비된 파일 이름만 확인
 <span style="color: #0969da;">git diff --cached --name-only</span></code></pre>
 
 ```text
@@ -1669,8 +1636,7 @@ README.md
 
 ##### 3. 두 번째 커밋 생성
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# 스테이징된 README 변경을 로컬 Git 이력에 기록
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 스테이징된 README 변경을 로컬 Git 이력에 기록
 <span style="color: #0969da;">git commit -m "docs: record first commit"</span></code></pre>
 
 ```text
@@ -1699,8 +1665,7 @@ GitHub 화면에는 서로 다른 두 가지 시작 방법이 표시됩니다. *
 
 아래는 **이후 PowerShell에서 실행할 안내**입니다. 이미 값이 나오면 새로 추가하기 전에 주소를 확인합니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행 예정: C:\all in one\e1-2
-# 현재 저장소에 연결된 원격 주소 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 현재 저장소에 연결된 원격 주소 확인
 <span style="color: #0969da;">git remote -v</span></code></pre>
 
 결과가 없으면 `origin`이 연결되지 않은 상태입니다. `origin`은 원격 저장소에 붙이는 통상적인 이름입니다.
@@ -1709,8 +1674,7 @@ GitHub 화면에는 서로 다른 두 가지 시작 방법이 표시됩니다. *
 
 `git remote -v`에 `origin`이 없을 때만 다음 명령을 실행합니다. 화면에 표시된 주소를 사용합니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행 예정
-# GitHub 저장소 주소를 origin이라는 이름으로 등록
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># GitHub 저장소 주소를 origin이라는 이름으로 등록
 <span style="color: #0969da;">git remote add origin https://github.com/modoofighting/E1-2.git</span>
 # 등록된 주소 확인
 <span style="color: #0969da;">git remote -v</span></code></pre>
@@ -1721,8 +1685,7 @@ GitHub 화면에는 서로 다른 두 가지 시작 방법이 표시됩니다. *
 
 원격 주소와 올릴 커밋, 저장소 공개 범위를 확인한 뒤 아래를 실행합니다. 인증이 필요하면 GitHub가 요청하는 로그인 절차를 진행합니다.
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행 예정
-# 로컬 main의 커밋을 origin의 main에 올리고 추적 관계 설정
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 로컬 main의 커밋을 origin의 main에 올리고 추적 관계 설정
 <span style="color: #0969da;">git push -u origin main</span></code></pre>
 
 `push`는 로컬 **커밋**을 원격 저장소로 전송합니다. `-u`는 이후 push·pull에 사용할 원격 추적 관계를 설정합니다. GitHub 예시의 `git branch -M main`은 브랜치 이름을 바꾸는 명령인데, 현재 브랜치가 이미 `main`이므로 다시 실행할 필요가 없습니다.

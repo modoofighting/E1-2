@@ -4,8 +4,7 @@
 
 ## Python 버전 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# Python 버전 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># Python 버전 확인
 <span style="color: #0969da;">python --version</span></code></pre>
 
 ```text
@@ -16,8 +15,7 @@ Python 3.11.9
 
 ## Git 버전 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# Git 버전 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># Git 버전 확인
 <span style="color: #0969da;">git --version</span></code></pre>
 
 ```text
@@ -28,8 +26,7 @@ Git 명령이 실행되고 설치된 버전이 표시됐습니다.
 
 ## 작업 폴더 존재 여부 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# E1-2 폴더 존재 여부 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># E1-2 폴더 존재 여부 확인
 <span style="color: #0969da;">test-path "C:\all in one\e1-2"</span></code></pre>
 
 ```text
@@ -40,8 +37,7 @@ True
 
 ## 작업 폴더 이동 및 위치 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# E1-2 폴더로 이동
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># E1-2 폴더로 이동
 <span style="color: #0969da;">set-location "C:\all in one\e1-2"</span>
 # 현재 작업 위치 확인
 <span style="color: #0969da;">Get-Location</span></code></pre>
@@ -56,8 +52,7 @@ C:\all in one\e1-2
 
 ## 숨김 항목을 포함한 폴더 목록 확인
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># PowerShell에서 실행
-# 숨김 항목을 포함해 현재 폴더의 파일과 디렉터리 확인
+<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa;"><code># 숨김 항목을 포함해 현재 폴더의 파일과 디렉터리 확인
 <span style="color: #0969da;">Get-ChildItem -Force</span></code></pre>
 
 ```text
