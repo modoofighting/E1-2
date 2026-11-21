@@ -931,6 +931,47 @@ git pull --ff-only origin main
 git log -5 --oneline
 ```
 
+### 7.4.1 다른 PC에서 sky 복제와 실행
+
+다른 Windows PC의 PowerShell에서 바탕화면으로 이동해 GitHub의 `sky` 브랜치를 복제했다. 실제로 입력한 주소는 `http`였고, Git이 `https`로 리디렉션해 복제를 완료했다.
+
+```powershell
+cd "$HOME\Desktop"
+git clone -b sky http://github.com/modoofighting/E1-2.git
+cd E1-2
+git status -sb
+```
+
+확인된 출력:
+
+```text
+## sky...origin/sky
+```
+
+복제한 폴더를 VS Code로 열고 프로그램을 실행했다.
+
+```powershell
+code .
+python main.py
+```
+
+실제 실행 결과에서 저장된 퀴즈 6개를 불러오고 메뉴가 표시됐다.
+
+```text
+저장된 퀴즈 6개를 불러왔습니다.
+퀴즈 개수: 6
+```
+
+#### 두 PC에서 작업 내용 주고받기
+
+한 PC에서 README나 코드를 수정한 뒤 `git status -sb`로 변경 파일을 확인하고, 필요한 파일을 `git add`, `git commit`, `git push` 순서로 원격 `sky`에 올린다. 다른 PC에서는 해당 저장소의 브랜치와 변경 사항을 먼저 확인한 뒤, `sky`에 있고 미커밋 변경이 없다면 다음 명령으로 가져온다.
+
+```powershell
+git pull --ff-only origin sky
+```
+
+위 `pull`은 두 PC 간 동기화를 위한 다음 절차다. 이 기록에서 확인된 실제 수행 결과는 복제와 게임 실행까지다.
+
 ### 7.5 증빙 이미지와 테스트 결과 정리
 
 실제 실행 후에만 이미지를 만들고, **해당 기능 설명 옆**에 연결한다. 아래 파일명은 권장 경로이며, 없는 이미지를 완료 증빙처럼 링크하지 않는다.
