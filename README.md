@@ -7,7 +7,7 @@
 ### 프로젝트 개요
 
 Python으로 터미널에서 동작하는 퀴즈 게임을 만들고, 기능별 개발 이력을 Git으로 기록하는 과제입니다. 
-게임의 목표 기능은 퀴즈 풀기·추가·목록·최고 점수 확인·종료입니다. `Quiz`와 `QuizGame` 두 클래스로 역할을 나누고, 문제와 최고 점수를 프로젝트 루트의 `state.json`에 UTF-8로 저장할 예정입니다. 현재는 환경 준비와 로컬 Git 초기화까지 진행했습니다.
+게임의 목표 기능은 퀴즈 풀기·추가·목록·최고 점수 확인·종료입니다. `Quiz`와 `QuizGame` 두 클래스로 역할을 나누고, 문제와 최고 점수를 프로젝트 루트의 `state.json`에 UTF-8로 저장합니다. 게임 기능과 Git 병합, 다른 PC에서의 clone·pull을 진행했습니다.
 
 ### 실행 환경
 
@@ -17,8 +17,8 @@ Python으로 터미널에서 동작하는 퀴즈 게임을 만들고, 기능별 
 | 작업 폴더 | `C:\all in one\e1-2` |
 | Python | `3.11.9` — 사용자가 PowerShell에서 실행 확인 |
 | Git | `2.55.0.windows.1` — 앞선 Codex 환경 점검에서 확인 |
-| Git 브랜치 | `main` — 저장소 초기화, 첫 커밋 전 |
-| GitHub | 원격 저장소 생성·연결·push 미수행 |
+| Git 브랜치 | `main` — `sky` 작업 병합 이력 확인 |
+| GitHub | 원격 저장소 연결 및 `main`·`sky` push 확인 |
 
 ### 수행 항목 체크리스트
 
@@ -27,13 +27,13 @@ Python으로 터미널에서 동작하는 퀴즈 게임을 만들고, 기능별 
 | 과제 원문 및 기존 실습 안내 검토 | 확인 |
 | Python 3.10 이상 실행 확인 | 완료 — 3.11.9 |
 | E1-2 작업 경로 확인 | 완료 |
-| `git init -b main`으로 저장소 초기화 | 완료 |
-| README 및 진행 로그 작성 | 진행 중 |
-| `.gitignore`·Git 작성자 정보·첫 커밋 | 미수행 |
-| GitHub 새 저장소 연결 및 첫 push | 미수행 |
-| 게임 구현·JSON 저장·입력 및 파일 예외 처리 | 미수행 |
-| 의미 있는 커밋 10개 이상·브랜치 병합 | 미수행 |
-| clone·pull 실습 및 실제 화면 증빙 | 미수행 |
+| Git 저장소 초기화 | 확인 — 기존 저장소 재초기화 기록 |
+| README 및 진행 로그 작성 | 작성 및 평가 보완 진행 |
+| `.gitignore`·Git 작성자 정보·첫 커밋 | 기록 확인 |
+| GitHub 저장소 연결 및 첫 push | 수행 기록 확인 |
+| 게임 구현·JSON 저장·입력 및 파일 예외 처리 | 구현 및 일부 실행·격리 검증 확인 |
+| 커밋·브랜치 병합 | 전체 커밋 18개(병합 포함), `sky`→`main` 병합 확인. 의미 있는 작업 단위는 내용별 검토 |
+| clone·pull 실습 및 화면 증빙 | 다른 PC 수행 기록과 별도 임시 폴더 재검증 화면 확인 |
 
 ## 개발 환경 및 Git 실습 
 
@@ -1233,6 +1233,8 @@ git log --oneline --graph --all --decorate
 
 [병합 명령·전체 출력과 커밋 그래프 보기](docs/evidence/git-merge-sky-main.txt)
 
+[GitHub 병합 커밋 화면](docs/screenshots/22-github-merge-commit.png) · [GitHub에서 커밋 보기](https://github.com/modoofighting/E1-2/commit/871c428e90ede5ea70d459378e98b3baa1b93731)
+
 
 ---
 
@@ -1438,6 +1440,12 @@ git config --local --get user.email
 [STEP 6. Git clone·pull 실습 상세 내용](docs/git-clone-pull.md)
 
 ---
+
+## 평가 보완과 확인 자료
+
+[VS Code 터미널의 Git 그래프 스크린샷](docs/screenshots/20-git-graph.png) · [별도 임시 폴더 clone·pull 재검증 화면](docs/screenshots/21-clone-pull-check.png)
+
+평가 항목별 현재 코드 구조, 저장 오류 대응, 1,000문항 이상 규모에 대한 추정, 요구 변경 체크리스트와 Git 증빙을 [평가 보완 상세 기록](docs/evaluation-followup.md)에서 확인할 수 있다. 실제 Git 그래프는 [텍스트 증빙](docs/evidence/git-graph-current.txt)으로 연결했다.
 
 ## 최종 제출 확인
 
