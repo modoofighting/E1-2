@@ -26,12 +26,6 @@ Python으로 터미널에서 동작하는 퀴즈 게임을 만들고, 기능별 
 ### Python 실행 환경 준비
 
 
-<pre style="border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; background: #f6f8fa; white-space: pre-wrap; overflow-wrap: anywhere; color: #1f2328;"><code style="color: inherit;"># 작업 폴더: C:\all in one\e1-2
-# 앞서 임시로 등록한 python 함수 제거
-<span style="color: #0969da;">Remove-Item Function:\python -ErrorAction SilentlyContinue</span>
-# 정상 설치된 Python 3.11 경로를 현재 창의 PATH 맨 앞에 추가
-<span style="color: #0969da;">$env:Path = &quot;$env:LOCALAPPDATA\Programs\Python\Python311;$env:Path&quot;</span>
-# 실제로 실행되는 Python 버전 확인
 <span style="color: #0969da;">python --version</span></code></pre>
 
 ```text
